@@ -1,23 +1,119 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import { InputField } from "./components/inputField";
+import { WarningIcon } from "./components/warningIcon";
+import { IdeaInputField } from "./components/ideaInputField";
+import { SubmitButton } from "./components/submitButton";
+import { CheckIcon } from "./components/checkIcon";
+import { TopBar } from "./components/topBar";
+
+//TODO
+// Fade out input fields - add 2 buttons (BROWSE & POST NEW)
+// Submit data to a DB
+// Check miro
 
 function App() {
+  //Input value states
+  const [userName, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [idea, setIdea] = useState("");
+  const [jobTitle, setJobTitle] = useState(""); 
+  //These are named incorrectly, they should be invalid**
+  //Bool values are flipped, don't want to re-name all.
+  const [validName, setValidName] = useState(false);
+  const [validEmail, setValidEmail] = useState(false);
+  const [validJob, setValidJob] = useState(false);
+  const [validIdea, setValidIdea] = useState(false);
+
+  //Bool states, isAnon, maximum input chars
+  const [isAnonymous, setIsAnonymous] = useState(false);
+  const [isNameMax, setIsNameMax] = useState(false);
+  const [isEmailMax, setIsEmailMax] = useState(false);
+  const [isIdeaMax, setIsIdeaMax] = useState(false);
+  const [isJobTitleMax, setIsJobTitleMax] = useState(false);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
+
+  //max input values
+  const maxInput = 50;
+  const maxIdeaInput = 2500;
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App">      
+    <TopBar />
+      <form className={`MainForm ${submitSuccess ? 'success' : ''}`}>
+        <header>
+          <h3 className="SmallTitle">Innovation Station</h3>
+          <h1 className="MainTitle">Get Your Ideas Noticed</h1>
+        </header>
+
+        <div className="InputRow">
+          <InputField
+            name="Name"
+            isAnonymous={isAnonymous}
+            setInputCallback={setUsername}
+            setMaxCallback={setIsNameMax}
+            setMaxInput={maxInput}
+            isValid={validName}
+          />
+          <WarningIcon showMe={isNameMax || validName} />
+
+          <InputField
+            name="Email"
+            isAnonymous={isAnonymous}
+            setInputCallback={setEmail}
+            setMaxCallback={setIsEmailMax}
+            setMaxInput={maxInput}
+            isValid={validEmail}
+          />
+          <WarningIcon showMe={isEmailMax || validEmail} />
+        </div>
+
+        <span>
+          <input
+            className="InputFieldBox"
+            type="checkbox"
+            onClick={() => setIsAnonymous(!isAnonymous)}
+          ></input>
+          <a className="InlineText"> Anonymous</a>
+        </span>
+
+        <div>
+        <InputField 
+          name="Job Title (Required)"
+          setInputCallback={setJobTitle}
+          setMaxCallback={setIsJobTitleMax}
+          setMaxInput={maxInput}   
+          isValid={validJob}       
+        />   
+        <WarningIcon showMe={isJobTitleMax || validJob} />
+        </div>
+
+        <IdeaInputField
+          setInputCallback={setIdea}
+          setMaxInput={maxIdeaInput}
+          setMaxCallback={setIsIdeaMax}
+          isValid={validIdea}
+        />
+        <WarningIcon showMe={isIdeaMax || validIdea} />
+
+        <span className="buttons">
+          <SubmitButton
+          submitName={userName}
+          submitEmail={email}
+          submitJobTitle={jobTitle}
+          submitIdea={idea}          
+          //Validity
+          isAnonymous={isAnonymous}
+          validNameCallback={setValidName}
+          validEmailCallback={setValidEmail}
+          validJobCallback={setValidJob}
+          validIdeaCallback={setValidIdea}
+          submitSuccessCallback={setSubmitSuccess}
+          />                  
+          <CheckIcon showMe={submitSuccess} message="Submit Successful" />  
+        </span>                      
+      </form>
+      <button className="link-btn">Browse Innovations</button>      
     </div>
   );
 }

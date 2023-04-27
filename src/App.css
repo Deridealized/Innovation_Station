@@ -1,38 +1,199 @@
 .App {
   text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+  display: flex;
   min-height: 100vh;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.MainForm {
+  transition: 0.3s;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  color: rgb(66, 66, 66);
+  background-color: rgba(255, 255, 255, 0.418);
+  border-radius: 20px;
+  padding: 2rem;
+  text-align: left;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.MainForm.success {
+  transition: 0.3s;
+  background-color: rgba(115, 255, 0, 0.218);
+}
+
+.InputField {
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  margin: 10px;
+  border: 2px solid #2699fb;
+  outline-color: #c5e4ff;
+}
+
+.IdeaInputField {
+  border-radius: 5px;
+  margin-bottom: 20px;
+  margin: 10px;
+  border: 2px solid #2699fb;
+  outline-color: #c5e4ff;
+}
+
+.InlineText {
+  font-size: small;
+  margin: 5px;
+}
+
+.submit-btn,
+.attachment-btn {
+  font-weight: bold;
+  border: none;
+  padding: 10px 20px 10px 20px;
+  border-radius: 5px;
   color: white;
+  background-color: rgb(4, 180, 4);
+  cursor: pointer;
+}
+
+.attachment-btn {
+  margin-left: 10px;
+  box-shadow:inset  0px 0px 0px 3px rgb(4, 180, 4);
+  color: rgb(4, 180, 4);
+  background-color: transparent;
+}
+
+.TopBar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  background: linear-gradient(
+    180deg,
+    rgba(222, 222, 222, 255) 0%,
+    #f8f8f8 50%,
+    #ffffff 50%,
+    #f8f8f8 53.12%,
+    rgba(248, 248, 248, 0.2) 96.54%,
+    #cccccc 99.98%,
+    rgba(98, 98, 98, 0) 100%
+  );
+}
+
+.TopBarHolder {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.TopBarRight {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  
+}
+
+.TopBarIdea-btn {
+  position: fixed;
+  right: 10px;
+  display: flex;
+  justify-items: right;
+}
+
+.HeaderLogo {
+  display: flex;
+  justify-items: left;
+  width: 48px;
+}
+
+.HeaderLogo2 {
+  display: flex;
+  padding: 10px;
+  padding-right: 0px;
+  width: 24px;
+  height: 24px;
+}
+
+.SearchBar {
+  margin: 10px;
+  border-radius: 5px;
+  border: 1px solid white;
+  padding: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+}
+
+.modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-buttons {
+  display: flex;  
+  justify-content: center;
+}
+
+.GreyedOut {
+  transition: 0.3s;
+  color: gray;
+  background-color: gainsboro;
+  text-decoration: line-through;
+}
+
+.InputErrorIcon {
+  filter: invert(82%) sepia(52%) saturate(4843%) hue-rotate(339deg)
+    brightness(103%) contrast(103%);
+  width: 16px;
+}
+
+.SubmitSuccessIcon {
+  filter: invert(72%) sepia(15%) saturate(5379%) hue-rotate(58deg)
+    brightness(85%) contrast(75%);
+  margin-left: 20px;
+  margin-right: 10px;
+  width: 16px;
+}
+
+.SuccessTitle {
+  font-weight: bold;
+  color: green;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  margin: 20px;
+}
+
+.hide {
+  display: none;
+}
+
+.MainTitle {
+  margin-top: 0rem;
+}
+
+.SmallTitle {
+  margin-bottom: 0rem;
+  font-size: small;
+}
+
+.link-btn {
+  color: grey;
+  font-weight: bold;
+  padding: 10px;
+  border: 2px solid grey;
+  margin: 10px;
+  margin-top: 25px;
+  border-radius: 5px;
+  background-color: transparent;
+  cursor: pointer;
 }
 
 .App-link {
   color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  text-decoration: underline;
 }
