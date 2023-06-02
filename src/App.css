@@ -32,9 +32,44 @@
   text-align: left;
 }
 
+.wrapper {     
+  display: grid;
+  grid-template-columns: repeat(3, 10fr);
+  gap: 25px;
+  word-wrap: break-word;
+}
+
+.ideaForm {
+  transition: 0.3s;
+  display: flexbox;
+  flex-direction: column;
+  width: 150px;
+  align-items: center;
+  justify-content: center;
+  color: rgb(66, 66, 66);
+  background-color: rgba(255, 255, 255, 0.418);
+  border-radius: 20px;
+  padding: 2rem;
+  text-align: left;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.ideaForm.hover {
+  
+}
+
 .MainForm.success {
   transition: 0.3s;
   background-color: rgba(115, 255, 0, 0.218);
+}
+
+.AuthorBox {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.IdeaBox {
+  font-size: medium;
 }
 
 .InputField {

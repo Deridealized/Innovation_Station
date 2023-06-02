@@ -40,7 +40,11 @@ function App() {
   //max input values
   const maxInput = 50;
   const maxIdeaInput = 2500;
-
+  
+  const handleValueChange = (newValue) => {
+    setShowSubmissions(newValue);
+  }
+  
   return (
     <div className="App">
       <TopBar />
@@ -115,7 +119,7 @@ function App() {
       </form>
 
       {showSubmissions ? (
-        <InnovationList showSubmissions={showSubmissions}/>
+        <InnovationList showSubmissions={showSubmissions} onValueChange={handleValueChange} />   
       ) : (
         <button className="link-btn" onClick={() => setShowSubmissions(true)}>
           Browse Innovations
