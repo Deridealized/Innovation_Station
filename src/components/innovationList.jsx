@@ -5,7 +5,8 @@ function InnovationList(props) {
           
     return (
       <div>
-        Hello
+        
+        Browse Innovations Components Here
         
       </div>
     );
