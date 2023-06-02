@@ -5,7 +5,7 @@ function InnovationList(props) {
           
     return (
       <div>
-        Hellos
+        Hello
         
       </div>
     );
