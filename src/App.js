@@ -1,3 +1,7 @@
+//Created by Jamie Hey
+//Prototype Innovation Portal Design for Fleetcor 2023
+//After taking 2 weeks off I have come back to this and it may as well be in Chinese.
+
 import React, { useState } from "react";
 import "./App.css";
 import { InputField } from "./components/inputField";
@@ -6,11 +10,10 @@ import { IdeaInputField } from "./components/ideaInputField";
 import { SubmitButton } from "./components/submitButton";
 import { CheckIcon } from "./components/checkIcon";
 import { TopBar } from "./components/topBar";
+import InnovationList from "./components/innovationList";
 
 //TODO
-// Fade out input fields - add 2 buttons (BROWSE & POST NEW)
 // Submit data to a DB
-// Check miro
 
 function App() {
   //Input value states
@@ -24,6 +27,7 @@ function App() {
   const [validEmail, setValidEmail] = useState(false);
   const [validJob, setValidJob] = useState(false);
   const [validIdea, setValidIdea] = useState(false);
+  const [showSubmissions, setShowSubmissions] = useState(false);
 
   //Bool states, isAnon, maximum input chars
   const [isAnonymous, setIsAnonymous] = useState(false);
@@ -38,7 +42,7 @@ function App() {
   const maxIdeaInput = 2500;
 
   return (
-    <div className="App">      
+    <div className="App">
     <TopBar />
       <form className={`MainForm ${submitSuccess ? 'success' : ''}`}>
         <header>
@@ -113,7 +117,14 @@ function App() {
           <CheckIcon showMe={submitSuccess} message="Submit Successful" />  
         </span>                      
       </form>
-      <button className="link-btn">Browse Innovations</button>      
+
+      {showSubmissions ? (
+        <InnovationList />
+      ) : (
+        <button className="link-btn" onClick={() => setShowSubmissions(true)}>
+          Browse Innovations
+        </button>
+      )}      
     </div>
   );
 }
