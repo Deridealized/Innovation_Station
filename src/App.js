@@ -20,7 +20,7 @@ function App() {
   const [userName, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [idea, setIdea] = useState("");
-  const [jobTitle, setJobTitle] = useState(""); 
+  const [jobTitle, setJobTitle] = useState("");
   //These are named incorrectly, they should be invalid**
   //Bool values are flipped, don't want to re-name all.
   const [validName, setValidName] = useState(false);
@@ -43,8 +43,8 @@ function App() {
 
   return (
     <div className="App">
-    <TopBar />
-      <form className={`MainForm ${submitSuccess ? 'success' : ''}`}>
+      <TopBar />
+      <form className={`MainForm ${submitSuccess ? "success" : ""}`}>
         <header>
           <h3 className="SmallTitle">Innovation Station</h3>
           <h1 className="MainTitle">Get Your Ideas Noticed</h1>
@@ -72,25 +72,21 @@ function App() {
           <WarningIcon showMe={isEmailMax || validEmail} />
         </div>
 
-        <span>
-          <input
-            className="InputFieldBox"
-            type="checkbox"
-            onClick={() => setIsAnonymous(!isAnonymous)}
-          ></input>
-          <a className="InlineText"> Anonymous</a>
-        </span>
+        <input
+          className="InputFieldBox"
+          type="checkbox"
+          onClick={() => setIsAnonymous(!isAnonymous)}
+        ></input>
+        <a className="InlineText"> Anonymous</a>
 
-        <div>
-        <InputField 
+        <InputField
           name="Job Title (Required)"
           setInputCallback={setJobTitle}
           setMaxCallback={setIsJobTitleMax}
-          setMaxInput={maxInput}   
-          isValid={validJob}       
-        />   
+          setMaxInput={maxInput}
+          isValid={validJob}
+        />
         <WarningIcon showMe={isJobTitleMax || validJob} />
-        </div>
 
         <IdeaInputField
           setInputCallback={setIdea}
@@ -102,29 +98,29 @@ function App() {
 
         <span className="buttons">
           <SubmitButton
-          submitName={userName}
-          submitEmail={email}
-          submitJobTitle={jobTitle}
-          submitIdea={idea}          
-          //Validity
-          isAnonymous={isAnonymous}
-          validNameCallback={setValidName}
-          validEmailCallback={setValidEmail}
-          validJobCallback={setValidJob}
-          validIdeaCallback={setValidIdea}
-          submitSuccessCallback={setSubmitSuccess}
-          />                  
-          <CheckIcon showMe={submitSuccess} message="Submit Successful" />  
-        </span>                      
+            submitName={userName}
+            submitEmail={email}
+            submitJobTitle={jobTitle}
+            submitIdea={idea}
+            //Validity
+            isAnonymous={isAnonymous}
+            validNameCallback={setValidName}
+            validEmailCallback={setValidEmail}
+            validJobCallback={setValidJob}
+            validIdeaCallback={setValidIdea}
+            submitSuccessCallback={setSubmitSuccess}
+          />
+          <CheckIcon showMe={submitSuccess} message="Submit Successful" />
+        </span>
       </form>
 
       {showSubmissions ? (
-        <InnovationList />
+        <InnovationList showSubmissions={showSubmissions}/>
       ) : (
         <button className="link-btn" onClick={() => setShowSubmissions(true)}>
           Browse Innovations
         </button>
-      )}      
+      )}
     </div>
   );
 }
