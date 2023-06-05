@@ -79,15 +79,21 @@ export const SubmitButton = props => {
       verifyIdea();
       if (!isUsernameInvalid && !isEmailInvalid && !isJobTitleInvalid && !isIdeaInvalid){
         
+       const submitArray = [idea, jobTitle, email]
+       localStorage.setItem(username, JSON.stringify(submitArray))
         
         
+
+
+      /*  THIS CODE WORKS. COMMENTED OUT WHILST CREATING JSON FUNCTIONALITY FOR ARRAY SAVING IN KEY VALUES
         localStorage.setItem(`${username}${submissionIndex}`, idea);
         localStorage.setItem("submissionIndex", submissionIndex)
         setSubmissionIndex((prevSubmissionIndex) => prevSubmissionIndex + 1);
 
         console.log(`Submission Index: ${submissionIndex}`)
         console.log(`${Object.keys(localStorage)}`)
- 
+ */
+
         //send Job Title and Idea
         props.submitSuccessCallback(true);
 
