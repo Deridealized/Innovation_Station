@@ -19,7 +19,7 @@ function InnovationList(props) {
   console.log(`My filtered items are: ${filteredItems}`)
   console.log(`Item 1: ${filteredItems[0][1]} type ${typeof(filteredItems)}`)
   console.log(`Item 2: ${filteredItems[1]}`)
-  console.log(`Parse part: ${JSON.parse(filteredItems[0][1])}`)
+  console.log(`Parse part: ${JSON.parse(filteredItems[0][1])[1]}`)
  
   return (
     <div>
