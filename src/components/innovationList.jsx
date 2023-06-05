@@ -3,13 +3,18 @@ import { Innovation } from "./innovation";
 
 function InnovationList(props) {
 
+  
+
   const handleValueChange = (event) => {
     const newValue = event.target.value;
     props.onValueChange(newValue);
-  }
+  };
 
-  
-  
+  //Local Storage to array
+  const localStorageItems = Object.entries(localStorage);
+
+  //Remove submission index for new array
+  const filteredItems = localStorageItems.filter(x  => !x.includes("submissionIndex"))
 
   return (
     <div>
@@ -19,12 +24,13 @@ function InnovationList(props) {
         </header>
 
         <div className="wrapper">
-          <Innovation idea="Bad idea" author="Jamie Hey" />
-          <Innovation idea="Worse Idea" author="Jack Chadbury" />
-          <Innovation idea="Average Idea" author="CD 'Rom' Limbu" />
-          <Innovation idea="Terrible Idea" author="Phillip Marhas" />
-          <Innovation idea="Awful Idea" author="Christopher Mchcggcyhahsgchee" />
-          
+          {filteredItems.map(([key, value], index) => (
+            <Innovation
+              key={index}
+              idea={value}
+              author={key.substring(0, key.length - 1)}
+              />
+          ))}
         </div>
         <button className="link-btn" type="button" onClick={handleValueChange}>
           Close

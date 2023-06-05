@@ -5,12 +5,15 @@ import { AttachmentButton } from "./attachmentButton";
 
 export const SubmitButton = props => {
   const [showModal, setShowModal] = useState(false);
+  const [submissionIndex, setSubmissionIndex] = useState(Number(localStorage.submissionIndex || 0));
 
   let username = props.submitName;
   let email = props.submitEmail;
   let jobTitle = props.submitJobTitle;
   let idea = props.submitIdea;
   let isAnonymous = props.isAnonymous;
+
+  
 
   let isUsernameInvalid = false;
   let isEmailInvalid = false;
@@ -75,7 +78,16 @@ export const SubmitButton = props => {
       verifyJobTitle();
       verifyIdea();
       if (!isUsernameInvalid && !isEmailInvalid && !isJobTitleInvalid && !isIdeaInvalid){
+        
+        
+        
+        localStorage.setItem(`${username}${submissionIndex}`, idea);
+        localStorage.setItem("submissionIndex", submissionIndex)
+        setSubmissionIndex((prevSubmissionIndex) => prevSubmissionIndex + 1);
 
+        console.log(`Submission Index: ${submissionIndex}`)
+        console.log(`${Object.keys(localStorage)}`)
+ 
         //send Job Title and Idea
         props.submitSuccessCallback(true);
 
