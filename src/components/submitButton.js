@@ -4,8 +4,7 @@ import { AttachmentButton } from "./attachmentButton";
 
 
 export const SubmitButton = props => {
-  const [showModal, setShowModal] = useState(false);
-  const [submissionIndex, setSubmissionIndex] = useState(Number(localStorage.submissionIndex || 0));
+  const [showModal, setShowModal] = useState(false);  
 
   let username = props.submitName;
   let email = props.submitEmail;

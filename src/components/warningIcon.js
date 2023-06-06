@@ -11,6 +11,6 @@ export const WarningIcon = (props) => {
         }
     }
     return (
-        <img src={Warning} className={showError()}></img>
+        <img src={Warning} alt="Warning Icon" className={showError()}></img>
     );
 }

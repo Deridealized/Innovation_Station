@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Innovation } from "./innovation";
 
 function InnovationList(props) {
@@ -15,12 +15,13 @@ function InnovationList(props) {
   //Remove submission index for new array
   const filteredItems = localStorageItems.filter(x  => !x.includes("submissionIndex"))
  
-
+  
   console.log(`My filtered items are: ${filteredItems}`)
   console.log(`Item 1: ${filteredItems[0][1]} type ${typeof(filteredItems)}`)
   console.log(`Item 2: ${filteredItems[1]}`)
   console.log(`Parse part: ${JSON.parse(filteredItems[0][1])[1]}`)
- 
+  
+
   return (
     <div>
       <form className="MainForm2">
