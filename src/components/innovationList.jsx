@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, {useState} from "react";
 import { Innovation } from "./innovation";
 
 function InnovationList(props) {
@@ -7,20 +7,27 @@ function InnovationList(props) {
     const newValue = event.target.value;
     props.onValueChange(newValue);
   };
-
-
+  
+  const clearAll = () => {
+    localStorage.clear();
+  }
+  
   //Local Storage to array
   const localStorageItems = Object.entries(localStorage);
 
   //Remove submission index for new array
   const filteredItems = localStorageItems.filter(x  => !x.includes("submissionIndex"))
  
+  if (filteredItems.length === 0) {
+    return (
+    <div>No innovations found.
+      <button className="link-btn" type="button" onClick={handleValueChange}>
+          Close
+        </button>
+    </div>
+    )
+  }
 
-  console.log(`My filtered items are: ${filteredItems}`)
-  console.log(`Item 1: ${filteredItems[0][1]} type ${typeof(filteredItems)}`)
-  console.log(`Item 2: ${filteredItems[1]}`)
-  console.log(`Parse part: ${JSON.parse(filteredItems[0][1])[1]}`)
- 
   return (
     <div>
       <form className="MainForm2">
@@ -29,16 +36,21 @@ function InnovationList(props) {
         </header>
 
         <div className="wrapper">
-          {filteredItems.map(([key, value], index) => (
+          {filteredItems.map(([username, submissionArray], index) => (
             <Innovation
               key={index}
-              idea={value}
-              author={key}
+              idea={JSON.parse(submissionArray)[0]}
+              author={username}
+              title={JSON.parse(submissionArray)[1]}
+              email={JSON.parse(submissionArray)[2]}
               />
           ))}
         </div>
         <button className="link-btn" type="button" onClick={handleValueChange}>
           Close
+        </button>
+        <button className="del-btn" type="button" onClick={clearAll}>
+          Remove All
         </button>
       </form>
     </div>

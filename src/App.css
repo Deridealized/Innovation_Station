@@ -39,6 +39,8 @@
   word-wrap: break-word;
 }
 
+
+
 .ideaForm {
   transition: 0.3s;
   display: flexbox;
@@ -52,6 +54,7 @@
   padding: 2rem;
   text-align: left;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  
 }
 
 .ideaForm.hover {
@@ -65,11 +68,26 @@
 
 .AuthorBox {
   font-weight: bold;
-  text-decoration: underline;
+  text-shadow: 2px 2px 2px rgba(128, 128, 128, 0.555);
+  margin-top: 0.1rem;
+}
+
+.TitleBox {
+  font-weight: bold;
+  margin-top: 0.1rem;
+  margin-bottom: 0.1rem;
 }
 
 .IdeaBox {
-  font-size: medium;
+  margin-top: 10px;
+  margin-bottom: 0.1rem;
+}
+
+.EmailBox {
+  margin-top: 0.1rem;
+  margin-bottom: 0.1rem;
+  font-style: italic;
+  color: rgb(92, 92, 92, 0.7);
 }
 
 .InputField {
@@ -227,7 +245,7 @@
   font-size: small;
 }
 
-.link-btn {
+.link-btn, .del-btn {
   color: grey;
   font-weight: bold;
   padding: 10px;
@@ -237,6 +255,12 @@
   border-radius: 5px;
   background-color: transparent;
   cursor: pointer;
+}
+
+.del-btn {
+  color: white;
+  border: 2px solid rgb(150, 0, 0);
+  background-color: rgb(255, 55, 55);
 }
 
 .App-link {

@@ -21,8 +21,8 @@ export const CheckIcon = (props) => {
     
     return (      
         <span className="modal">
-        <img src={Check} className={showCheck()}></img>
-        <a className={showText()}>{props.message}</a>        
+        <img src={Check} alt="Checkmark" className={showCheck()}></img>
+        <a  className={showText()}>{props.message}</a>        
         </span>
     );
 }
