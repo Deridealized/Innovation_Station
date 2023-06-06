@@ -11,7 +11,6 @@ export const TopBar = () => {
                 <input
                     className="SearchBar"
                     placeholder="Search Innovations"
-                    onSubmit=""
                 ></input>
                 <button className="TopBarIdea-btn submit-btn">My Ideas</button>
             </span>
