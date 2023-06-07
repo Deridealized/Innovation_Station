@@ -55,6 +55,9 @@ export const SubmitButton = props => {
   }
 
   const submitForm = () => {
+
+    const innovationObj = {};
+
     if (isAnonymous) {
       verifyJobTitle();
       verifyIdea();
@@ -80,6 +83,9 @@ export const SubmitButton = props => {
         
        const submitArray = [idea, jobTitle, email]
        localStorage.setItem(username, JSON.stringify(submitArray))
+
+
+
         
         
 
