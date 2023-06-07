@@ -5,6 +5,7 @@
   align-items: center;
   flex-direction: column;
   justify-content: center;
+  flex-grow: 1;
 }
 
 .MainForm {
@@ -37,6 +38,54 @@
   grid-template-columns: repeat(3, 10fr);
   gap: 25px;
   word-wrap: break-word;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 0.2fr 0.1fr;
+  gap: 25px;
+  word-wrap: break-word;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  width: 250px;
+  background: linear-gradient(
+    rgba(242, 242, 242, 0) 0%,
+    rgba(255, 255, 255, 1) 50%,    
+    rgba(242, 242, 242, 0) 100%
+  );
+  justify-self: end;
+  position: relative;
+}
+
+.sidebar:before,
+.sidebar:after {
+  content: "";
+  position: absolute;
+  top: 20%;
+  bottom: 20%;
+  width: 3px;
+  background-color: rgba(5, 6, 68, 0.281);
+}
+
+.sidebar:before {
+  left: 0;
+}
+
+.sidebar:after {
+  right: 0;
+}
+
+.sidebar-items {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
 
 
@@ -80,7 +129,7 @@
 
 .IdeaBox {
   margin-top: 10px;
-  margin-bottom: 0.1rem;
+  margin-bottom: 10px;
 }
 
 .EmailBox {
@@ -242,6 +291,10 @@
 
 .SmallTitle {
   margin-bottom: 0rem;
+  font-size: small;
+}
+
+.SmallTitle2 {
   font-size: small;
 }
 

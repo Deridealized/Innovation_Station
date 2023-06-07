@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import { Innovation } from "./innovation";
 
 function InnovationList(props) {
@@ -45,11 +45,14 @@ function InnovationList(props) {
             return (
               <Innovation
                 key={key}
+                id={parsedInnovation.id}
                 idea={parsedInnovation.idea}
                 author={parsedInnovation.author}
                 title={parsedInnovation.jobTitle}
                 email={parsedInnovation.email}
                 anonymous={parsedInnovation.anonymous}
+                score={parsedInnovation.score}
+                timestamp={parsedInnovation.timestamp}
                 />
                 );
             } else {
