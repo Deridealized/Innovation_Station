@@ -43,8 +43,8 @@ function App() {
   
   const handleValueChange = (newValue) => {
     setShowSubmissions(newValue);
-  }
-  
+  }  
+
   return (
     <div className="App">
       <TopBar />
@@ -112,7 +112,7 @@ function App() {
             validEmailCallback={setValidEmail}
             validJobCallback={setValidJob}
             validIdeaCallback={setValidIdea}
-            submitSuccessCallback={setSubmitSuccess}
+            submitSuccessCallback={setSubmitSuccess}            
           />
           <CheckIcon showMe={submitSuccess} message="Submit Successful" />
         </span>

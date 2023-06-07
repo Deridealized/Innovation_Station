@@ -32,7 +32,7 @@ function InnovationList(props) {
     <div>
       <form className="MainForm2">
         <header>
-          <h1 className="MainTitle">Recent innovations</h1>
+          <h1 className="MainTitle">Browse Innovations</h1>
         </header>
 
         <div className="wrapper">
