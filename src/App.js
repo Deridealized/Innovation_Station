@@ -11,6 +11,7 @@ import { SubmitButton } from "./components/submitButton";
 import { CheckIcon } from "./components/checkIcon";
 import { TopBar } from "./components/topBar";
 import InnovationList from "./components/innovationList";
+import InnovationSidebar from "./components/innovationSidebar";
 
 //TODO
 // Submit data to a DB
@@ -40,91 +41,100 @@ function App() {
   //max input values
   const maxInput = 50;
   const maxIdeaInput = 2500;
-  
+
   const handleValueChange = (newValue) => {
     setShowSubmissions(newValue);
-  }  
+  };
 
   return (
-    <div className="App">
+    <div className="container">
       <TopBar />
-      <form className={`MainForm ${submitSuccess ? "success" : ""}`}>
-        <header>
-          <h3 className="SmallTitle">Innovation Station</h3>
-          <h1 className="MainTitle">Get Your Ideas Noticed</h1>
-        </header>
+      <div className="App">        
+        <form className={`MainForm ${submitSuccess ? "success" : ""}`}>
+          <header>
+            <h3 className="SmallTitle">Innovation Station</h3>
+            <h1 className="MainTitle">Get Your Ideas Noticed</h1>
+          </header>
 
-        <div className="InputRow">
+          <div className="InputRow">
+            <InputField
+              name="Name"
+              isAnonymous={isAnonymous}
+              setInputCallback={setUsername}
+              setMaxCallback={setIsNameMax}
+              setMaxInput={maxInput}
+              isValid={validName}
+            />
+            <WarningIcon showMe={isNameMax || validName} />
+
+            <InputField
+              name="Email"
+              isAnonymous={isAnonymous}
+              setInputCallback={setEmail}
+              setMaxCallback={setIsEmailMax}
+              setMaxInput={maxInput}
+              isValid={validEmail}
+            />
+            <WarningIcon showMe={isEmailMax || validEmail} />
+          </div>
+
+          <input
+            className="InputFieldBox"
+            type="checkbox"
+            onClick={() => setIsAnonymous(!isAnonymous)}
+          ></input>
+          <a className="InlineText"> Anonymous</a>
+
           <InputField
-            name="Name"
-            isAnonymous={isAnonymous}
-            setInputCallback={setUsername}
-            setMaxCallback={setIsNameMax}
+            name="Job Title (Required)"
+            setInputCallback={setJobTitle}
+            setMaxCallback={setIsJobTitleMax}
             setMaxInput={maxInput}
-            isValid={validName}
+            isValid={validJob}
           />
-          <WarningIcon showMe={isNameMax || validName} />
+          <WarningIcon showMe={isJobTitleMax || validJob} />
 
-          <InputField
-            name="Email"
-            isAnonymous={isAnonymous}
-            setInputCallback={setEmail}
-            setMaxCallback={setIsEmailMax}
-            setMaxInput={maxInput}
-            isValid={validEmail}
+          <IdeaInputField
+            setInputCallback={setIdea}
+            setMaxInput={maxIdeaInput}
+            setMaxCallback={setIsIdeaMax}
+            isValid={validIdea}
           />
-          <WarningIcon showMe={isEmailMax || validEmail} />
-        </div>
+          <WarningIcon showMe={isIdeaMax || validIdea} />
 
-        <input
-          className="InputFieldBox"
-          type="checkbox"
-          onClick={() => setIsAnonymous(!isAnonymous)}
-        ></input>
-        <a className="InlineText"> Anonymous</a>
+          <span className="buttons">
+            <SubmitButton
+              submitName={userName}
+              submitEmail={email}
+              submitJobTitle={jobTitle}
+              submitIdea={idea}
+              //Validity
+              isAnonymous={isAnonymous}
+              validNameCallback={setValidName}
+              validEmailCallback={setValidEmail}
+              validJobCallback={setValidJob}
+              validIdeaCallback={setValidIdea}
+              submitSuccessCallback={setSubmitSuccess}
+            />
+            <CheckIcon showMe={submitSuccess} message="Submit Successful" />
+          </span>
+        </form>
 
-        <InputField
-          name="Job Title (Required)"
-          setInputCallback={setJobTitle}
-          setMaxCallback={setIsJobTitleMax}
-          setMaxInput={maxInput}
-          isValid={validJob}
-        />
-        <WarningIcon showMe={isJobTitleMax || validJob} />
-
-        <IdeaInputField
-          setInputCallback={setIdea}
-          setMaxInput={maxIdeaInput}
-          setMaxCallback={setIsIdeaMax}
-          isValid={validIdea}
-        />
-        <WarningIcon showMe={isIdeaMax || validIdea} />
-
-        <span className="buttons">
-          <SubmitButton
-            submitName={userName}
-            submitEmail={email}
-            submitJobTitle={jobTitle}
-            submitIdea={idea}
-            //Validity
-            isAnonymous={isAnonymous}
-            validNameCallback={setValidName}
-            validEmailCallback={setValidEmail}
-            validJobCallback={setValidJob}
-            validIdeaCallback={setValidIdea}
-            submitSuccessCallback={setSubmitSuccess}            
+        {showSubmissions ? (
+          <InnovationList
+            showSubmissions={showSubmissions}
+            onValueChange={handleValueChange}
           />
-          <CheckIcon showMe={submitSuccess} message="Submit Successful" />
-        </span>
-      </form>
-
-      {showSubmissions ? (
-        <InnovationList showSubmissions={showSubmissions} onValueChange={handleValueChange} />   
-      ) : (
-        <button className="link-btn" onClick={() => setShowSubmissions(true)}>
-          Browse Innovations
-        </button>
-      )}
+        ) : (
+          <button className="link-btn" onClick={() => setShowSubmissions(true)}>
+            Browse Innovations
+          </button>
+        )}
+      </div>
+      <div className="sidebar"><InnovationSidebar
+            showSubmissions={showSubmissions}
+            onValueChange={handleValueChange}
+          /></div>
     </div>
   );
 }

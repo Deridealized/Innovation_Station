@@ -53,8 +53,9 @@ export const SubmitButton = (props) => {
   };
 
   const submitForm = () => {
-    const innovationObj = {};
+    
     const generateId = () => Math.random().toString(36).substring(2, 18);
+    const innovationObj = {};
 
     verifyName();
     verifyEmail();
@@ -68,13 +69,18 @@ export const SubmitButton = (props) => {
         !isIdeaInvalid &&
         !isJobTitleInvalid
       ) {
+        const innovationId = generateId();
+        innovationObj.id = innovationId;
         innovationObj.author = username;
         innovationObj.email = email;
         innovationObj.idea = idea;
         innovationObj.jobTitle = jobTitle;
         innovationObj.anonymous = isAnonymous;
+        innovationObj.score = 0;
+        innovationObj.timestamp = new Date().toISOString();        
 
-        localStorage.setItem(generateId(), JSON.stringify(innovationObj));
+        localStorage.setItem(innovationId, JSON.stringify(innovationObj));
+        
 
         //Green overlay
         props.submitSuccessCallback(true);
@@ -82,17 +88,21 @@ export const SubmitButton = (props) => {
           props.submitSuccessCallback(false);
         }, 3000);
       } else {
-        alert("Please enter valid credentials");
+        alert("Please enter valid credentials 1");
       }
     } else {
       if (!isIdeaInvalid) {
+        const innovationId = generateId();
+        innovationObj.id = innovationId;
         innovationObj.author = username;
         innovationObj.email = email;
         innovationObj.idea = idea;
         innovationObj.jobTitle = jobTitle;
         innovationObj.anonymous = isAnonymous;
+        innovationObj.score = 0;
+        innovationObj.timestamp = new Date().toISOString();
 
-        localStorage.setItem(generateId(), JSON.stringify(innovationObj));
+        localStorage.setItem(innovationId, JSON.stringify(innovationObj));
 
         //Green overlay
         props.submitSuccessCallback(true);
@@ -100,7 +110,7 @@ export const SubmitButton = (props) => {
           props.submitSuccessCallback(false);
         }, 3000);
       } else {
-        alert("Please enter valid credentials");
+        alert("Please enter valid credentials 2");
       }
     }
   };
