@@ -57,59 +57,27 @@ export const SubmitButton = props => {
   const submitForm = () => {
 
     const innovationObj = {};
+    const generateId = () => Math.random().toString(36).substring(2, 18);
 
-    if (isAnonymous) {
-      verifyJobTitle();
-      verifyIdea();
-      if (!isJobTitleInvalid && !isIdeaInvalid) {
+    verifyName();
+    verifyEmail();
+    verifyJobTitle();
+    verifyIdea();
 
-        //send Job Title and Idea
-        props.submitSuccessCallback(true);
+    innovationObj.author = username;
+    innovationObj.email = email;
+    innovationObj.idea = idea;
+    innovationObj.jobTitle = jobTitle;
+    innovationObj.anonymous = isAnonymous;       
 
-        setTimeout(() => {
-          props.submitSuccessCallback(false);
-        }, 3000);
+    localStorage.setItem(generateId(), JSON.stringify(innovationObj));
+                
+    props.submitSuccessCallback(true);
 
-      } else if(isJobTitleInvalid && isIdeaInvalid) {
-        
-        // CREATE WARNING TO CHECK INPUT
-      }
-    } else if (!isAnonymous) {
-      verifyName();
-      verifyEmail();
-      verifyJobTitle();
-      verifyIdea();
-      if (!isUsernameInvalid && !isEmailInvalid && !isJobTitleInvalid && !isIdeaInvalid){
-        
-       const submitArray = [idea, jobTitle, email]
-       localStorage.setItem(username, JSON.stringify(submitArray))
-
-
-
-        
-        
-
-
-      /*  THIS CODE WORKS. COMMENTED OUT WHILST CREATING JSON FUNCTIONALITY FOR ARRAY SAVING IN KEY VALUES
-        localStorage.setItem(`${username}${submissionIndex}`, idea);
-        localStorage.setItem("submissionIndex", submissionIndex)
-        setSubmissionIndex((prevSubmissionIndex) => prevSubmissionIndex + 1);
-
-        console.log(`Submission Index: ${submissionIndex}`)
-        console.log(`${Object.keys(localStorage)}`)
- */
-
-        //send Job Title and Idea
-        props.submitSuccessCallback(true);
-
-        setTimeout(() => {
-          props.submitSuccessCallback(false);
-        }, 3000);
-        
-      } else {
-        // CREATE WARNING TO CHECK INPUT
-      }
-    }
+    setTimeout(() => {
+      props.submitSuccessCallback(false);
+    }, 3000);    
+    
   };
 
   const showSubmit = () => {

@@ -36,15 +36,26 @@ function InnovationList(props) {
         </header>
 
         <div className="wrapper">
-          {filteredItems.map(([username, submissionArray], index) => (
-            <Innovation
-              key={index}
-              idea={JSON.parse(submissionArray)[0]}
-              author={username}
-              title={JSON.parse(submissionArray)[1]}
-              email={JSON.parse(submissionArray)[2]}
-              />
-          ))}
+          {filteredItems.map((key, index) => {
+            let parsedInnovation = JSON.parse(localStorage.getItem(key[0]));
+            console.log(parsedInnovation)
+            console.log(filteredItems)
+            
+            if (parsedInnovation){              
+            return (
+              <Innovation
+                key={key}
+                idea={parsedInnovation.idea}
+                author={parsedInnovation.author}
+                title={parsedInnovation.jobTitle}
+                email={parsedInnovation.email}
+                anonymous={parsedInnovation.anonymous}
+                />
+                );
+            } else {
+              return null;
+            }
+              })}
         </div>
         <button className="link-btn" type="button" onClick={handleValueChange}>
           Close
