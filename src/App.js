@@ -38,6 +38,9 @@ function App() {
   const [isJobTitleMax, setIsJobTitleMax] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
 
+  //Refresher
+  const [refresh, setRefresh] = useState(false);
+
   //max input values
   const maxInput = 50;
   const maxIdeaInput = 2500;
@@ -45,6 +48,10 @@ function App() {
   const handleValueChange = (newValue) => {
     setShowSubmissions(newValue);
   };
+
+  const onVote = () => {
+    setRefresh(!refresh);
+  }
 
   return (
     <div className="container">
@@ -124,6 +131,7 @@ function App() {
           <InnovationList
             showSubmissions={showSubmissions}
             onValueChange={handleValueChange}
+            onVote={onVote}
           />
         ) : (
           <button className="link-btn" onClick={() => setShowSubmissions(true)}>
@@ -134,6 +142,7 @@ function App() {
       <div className="sidebar"><InnovationSidebar
             showSubmissions={showSubmissions}
             onValueChange={handleValueChange}
+            onVote={onVote}
           /></div>
     </div>
   );

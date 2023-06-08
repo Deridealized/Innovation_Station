@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 export const Innovation = (props) => {
   const [score, setScore] = useState(props.score || 0);
-  const { id, anonymous, idea, author, title, email } = props;
+  const { id, anonymous, idea, author, title, email, onVote } = props;
   const timestamp = new Date(props.timestamp);
   const formattedTime = timestamp.toLocaleTimeString();
   const formattedDate = timestamp.toLocaleDateString();
@@ -13,6 +13,7 @@ export const Innovation = (props) => {
       storedInnovation.score += vote;
       localStorage.setItem(id, JSON.stringify(storedInnovation));
       setScore(storedInnovation.score);
+      onVote();
     }
   };
 

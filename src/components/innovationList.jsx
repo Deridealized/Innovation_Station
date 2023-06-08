@@ -8,15 +8,22 @@ function InnovationList(props) {
     props.onValueChange(newValue);
   };
   
+  const onVote = props.onVote;
+  
   const clearAll = () => {
     localStorage.clear();
+    onVote();
   }
   
   //Local Storage to array
   const localStorageItems = Object.entries(localStorage);
 
-  //Remove submission index for new array
-  const filteredItems = localStorageItems.filter(x  => !x.includes("submissionIndex"))
+  const filteredItems = localStorageItems
+  .map(([key, value]) => ({
+    key,
+    innovation: JSON.parse(value)
+  }))
+
  
   if (filteredItems.length === 0) {
     return (
@@ -36,23 +43,22 @@ function InnovationList(props) {
         </header>
 
         <div className="wrapper">
-          {filteredItems.map((key, index) => {
-            let parsedInnovation = JSON.parse(localStorage.getItem(key[0]));
-            console.log(parsedInnovation)
-            console.log(filteredItems)
-            
-            if (parsedInnovation){              
+          {filteredItems.map((item) => {            
+            const { key, innovation } = item;
+
+            if (innovation){              
             return (
               <Innovation
                 key={key}
-                id={parsedInnovation.id}
-                idea={parsedInnovation.idea}
-                author={parsedInnovation.author}
-                title={parsedInnovation.jobTitle}
-                email={parsedInnovation.email}
-                anonymous={parsedInnovation.anonymous}
-                score={parsedInnovation.score}
-                timestamp={parsedInnovation.timestamp}
+                id={innovation.id}
+                idea={innovation.idea}
+                author={innovation.author}
+                title={innovation.jobTitle}
+                email={innovation.email}
+                anonymous={innovation.anonymous}
+                score={innovation.score}
+                timestamp={innovation.timestamp}
+                onVote={onVote}
                 />
                 );
             } else {
