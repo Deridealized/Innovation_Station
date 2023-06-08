@@ -102,6 +102,7 @@ function App() {
             setMaxCallback={setIsJobTitleMax}
             setMaxInput={maxInput}
             isValid={validJob}
+            isAnonymous={isAnonymous}
           />
           <WarningIcon showMe={isJobTitleMax || validJob} />
 
