@@ -1,5 +1,5 @@
-import { hasFormSubmit } from "@testing-library/user-event/dist/utils";
-import React, {useEffect, useState} from "react";
+
+import React, { useState} from "react";
 
 
 export const Innovation = (props) => {
@@ -39,9 +39,9 @@ if (anonymous) {
             <h6 className="EmailBox">
                 Uploaded on {formattedDate} at {formattedTime}
             </h6>
-            <button className="link-btn" type="button" onClick={() => handleScoreChange(1)}> ↑ </button>
-            <button className="link-btn" type="button" onClick={() => handleScoreChange(-1)}> ↓ </button>
-            {score}
+            <button className="upvote-btn" type="button" onClick={() => handleScoreChange(1)}> 🡹 </button>
+            <button className="downvote-btn" type="button" onClick={() => handleScoreChange(-1)}> 🡻 </button>
+            <span className="score-text">{score}</span>
         </div>
         
         </div>
@@ -66,9 +66,9 @@ if (anonymous) {
             <h6 className="EmailBox">
                 Uploaded on {formattedDate} at {formattedTime}
             </h6>
-            <button className="link-btn" type="button" onClick={() => handleScoreChange(1)}> ↑ </button>
-            <button className="link-btn" type="button" onClick={() => handleScoreChange(-1)}> ↓ </button>
-            {score}
+            <button className="upvote-btn" type="button" onClick={() => handleScoreChange(1)}> 🡹 </button>
+            <button className="downvote-btn" type="button" onClick={() => handleScoreChange(-1)}> 🡻 </button>
+            <span className="score-text">{score}</span>
         </div>
         </div>
     )
