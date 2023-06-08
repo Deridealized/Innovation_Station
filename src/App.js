@@ -12,6 +12,10 @@ import { CheckIcon } from "./components/checkIcon";
 import { TopBar } from "./components/topBar";
 import InnovationList from "./components/innovationList";
 import InnovationSidebar from "./components/innovationSidebar";
+import { ImageTitle } from "./components/imageTitle";
+import innovImage from "./images/iconCompass.png"
+import inventImage from "./images/iconPeopleCogs.png"
+import inspireImage from "./images/iconCogs.png"
 
 //TODO
 // Submit data to a DB
@@ -127,7 +131,11 @@ function App() {
           </span>
         </form>
 
-        <span style={{marginTop: 25}}>Innovate Invent Inspire</span>
+        <span className="iiiImages">
+        <ImageTitle title="Innovate" image={innovImage} /> 
+        <ImageTitle title="Invent" image={inventImage} /> 
+        <ImageTitle title="Inspire" image={inspireImage} /> </span>
+
 
         {showSubmissions ? (
           <InnovationList
