@@ -51,12 +51,12 @@ function App() {
 
   const onVote = () => {
     setRefresh(!refresh);
-  }
+  };
 
   return (
     <div className="container">
       <TopBar />
-      <div className="App">        
+      <div className="App">
         <form className={`MainForm ${submitSuccess ? "success" : ""}`}>
           <header>
             <h3 className="SmallTitle">Innovation Station</h3>
@@ -139,11 +139,13 @@ function App() {
           </button>
         )}
       </div>
-      <div className="sidebar"><InnovationSidebar
-            showSubmissions={showSubmissions}
-            onValueChange={handleValueChange}
-            onVote={onVote}
-          /></div>
+      <div className="sidebar">
+        <InnovationSidebar
+          showSubmissions={showSubmissions}
+          onValueChange={handleValueChange}
+          onVote={onVote}
+        />
+      </div>
     </div>
   );
 }

@@ -43,8 +43,6 @@ function InnovationSidebar(props) {
                   id={innovation.id}
                   idea={innovation.idea}
                   author={innovation.author}
-                  title={innovation.jobTitle}
-                  email={innovation.email}
                   anonymous={innovation.anonymous}
                   score={innovation.score}
                   timestamp={innovation.timestamp}
