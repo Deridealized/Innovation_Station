@@ -59,7 +59,8 @@ function App() {
   };
 
   const onVote = () => {
-    setRefresh(!refresh);
+    setRefresh((prevRefresh) => !prevRefresh);
+    console.log(`Refreshed! State: ${refresh}`)
   };
 
   return (

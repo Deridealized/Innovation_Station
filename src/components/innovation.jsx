@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ReadMore } from "./readMore";
 
 export const Innovation = (props) => {
@@ -20,17 +20,19 @@ export const Innovation = (props) => {
     }
   };
 
-
+  useEffect(() => {
+    setScore(props.score);
+  }, [props.score]);
 
   if (anonymous) {
     return (
       <div className="">
         <div className="ideaForm">
           <h4 className="AuthorBox">{"Anonymous"}</h4>
-          <p className="IdeaBox">
+          <div className="IdeaBox">
           <ReadMore idea={idea} />          
 
-          </p>
+          </div>
           <h6 className="EmailBox">
             Uploaded on {formattedDate} at {formattedTime}
           </h6>
@@ -64,9 +66,9 @@ export const Innovation = (props) => {
           <h5 className="TitleBox">{title}</h5>
           <h6 className="EmailBox">{email}</h6>
 
-          <p className="IdeaBox">
+          <div className="IdeaBox">
             <ReadMore idea={idea} />
-          </p>
+          </div>
           <h6 className="EmailBox">
             Uploaded on {formattedDate} at {formattedTime}
           </h6>
