@@ -88,7 +88,14 @@ export const SubmitButton = (props) => {
           props.submitSuccessCallback(false);
         }, 3000);
       } else {
-        alert("Please enter valid credentials 1");
+
+        let badName = isUsernameInvalid ? "/Name" : "";
+        let badEmail = isEmailInvalid ? "/Email" : "";
+        let badTitle = isJobTitleInvalid ? "/Job Title" : "";
+        let badIdea = isIdeaInvalid ? "/Idea" : "";
+
+
+        alert(`Please fix field(s): ${badName} ${badEmail} ${badTitle} ${badIdea}`);
       }
     } else {
       if (!isIdeaInvalid) {
@@ -110,7 +117,7 @@ export const SubmitButton = (props) => {
           props.submitSuccessCallback(false);
         }, 3000);
       } else {
-        alert("Please enter valid credentials 2");
+        alert(`Please fix field: Idea`)
       }
     }
   };
