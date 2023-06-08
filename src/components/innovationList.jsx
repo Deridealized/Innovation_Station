@@ -38,8 +38,10 @@ function InnovationList(props) {
   return (
     <div>
       <form className="MainForm2">
-        <header>
-          <h1 className="MainTitle">Browse Innovations</h1>
+        <span>Innovate Invent Inspire</span>
+        <header>          
+          <h4 className="SmallTitle">Your ideas are being actioned</h4>
+          <h1 className="MainTitle">The following business changes started here!</h1>
         </header>
 
         <div className="wrapper">

@@ -103,8 +103,6 @@
   gap: 25px;
 }
 
-
-
 .ideaForm {
   transition: 0.3s;
   display: flexbox;
@@ -113,7 +111,7 @@
   align-items: center;
   justify-content: center;
   color: rgb(66, 66, 66);
-  background-color: rgb(253, 253, 253);
+  background-color: rgb(255, 255, 255);
   border-radius: 15px;
   border: 2px solid white;
   padding: 2rem;
