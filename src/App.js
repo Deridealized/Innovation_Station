@@ -127,6 +127,8 @@ function App() {
           </span>
         </form>
 
+        <span style={{marginTop: 25}}>Innovate Invent Inspire</span>
+
         {showSubmissions ? (
           <InnovationList
             showSubmissions={showSubmissions}
