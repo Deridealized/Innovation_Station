@@ -1,6 +1,14 @@
 //Created by Jamie Hey
 //Prototype Innovation Portal Design for Fleetcor 2023
-//After taking 2 weeks off I have come back to this and it may as well be in Chinese.
+//The user can input their name, email, job title and idea for change.
+//This is then added to localStorage pending ability to add to a Database
+//You can vote on ideas
+//You can browse all ideas based on their score
+//You can see most recently uploaded on the right
+//There is a read more button for longer ideas, to prevent information overload
+//Input error handling - tells you each incorrect input field
+//There is a remove all button (for testing purposes)
+
 
 import React, { useState } from "react";
 import "./App.css";
@@ -13,12 +21,9 @@ import { TopBar } from "./components/topBar";
 import InnovationList from "./components/innovationList";
 import InnovationSidebar from "./components/innovationSidebar";
 import { ImageTitle } from "./components/imageTitle";
-import innovImage from "./images/iconCompass.png"
-import inventImage from "./images/iconPeopleCogs.png"
-import inspireImage from "./images/iconCogs.png"
-
-//TODO
-// Submit data to a DB
+import innovImage from "./images/iconCompass.png";
+import inventImage from "./images/iconPeopleCogs.png";
+import inspireImage from "./images/iconCogs.png";
 
 function App() {
   //Input value states
@@ -133,10 +138,10 @@ function App() {
         </form>
 
         <span className="iiiImages">
-        <ImageTitle title="Innovate" image={innovImage} /> 
-        <ImageTitle title="Invent" image={inventImage} /> 
-        <ImageTitle title="Inspire" image={inspireImage} /> </span>
-
+          <ImageTitle title="Innovate" image={innovImage} />
+          <ImageTitle title="Invent" image={inventImage} />
+          <ImageTitle title="Inspire" image={inspireImage} />{" "}
+        </span>
 
         {showSubmissions ? (
           <InnovationList
