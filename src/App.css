@@ -372,3 +372,11 @@
   color: #61dafb;
   text-decoration: underline;
 }
+
+.read-more-link {
+  color: #0099ff;
+  text-decoration: underline;
+  font-weight: bold;
+  font-size: small;
+  cursor: pointer;
+}

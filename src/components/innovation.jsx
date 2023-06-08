@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { ReadMore } from "./readMore";
 
 export const Innovation = (props) => {
   const [score, setScore] = useState(props.score || 0);
@@ -22,7 +23,9 @@ export const Innovation = (props) => {
       <div className="">
         <div className="ideaForm">
           <h4 className="AuthorBox">{"Anonymous"}</h4>
-          <p className="IdeaBox">{idea}</p>
+          <p className="IdeaBox">
+            <ReadMore idea={idea} />
+          </p>
           <h6 className="EmailBox">
             Uploaded on {formattedDate} at {formattedTime}
           </h6>
@@ -54,7 +57,9 @@ export const Innovation = (props) => {
           <h5 className="TitleBox">{title}</h5>
           <h6 className="EmailBox">{email}</h6>
 
-          <p className="IdeaBox">{idea}</p>
+          <p className="IdeaBox">
+          <ReadMore idea={idea} />
+          </p>
           <h6 className="EmailBox">
             Uploaded on {formattedDate} at {formattedTime}
           </h6>
