@@ -8,6 +8,8 @@ export const Innovation = (props) => {
   const formattedTime = timestamp.toLocaleTimeString();
   const formattedDate = timestamp.toLocaleDateString();
 
+  
+
   const handleScoreChange = (vote) => {
     const storedInnovation = JSON.parse(localStorage.getItem(id));
     if (storedInnovation) {
@@ -18,17 +20,21 @@ export const Innovation = (props) => {
     }
   };
 
+
+
   if (anonymous) {
     return (
       <div className="">
         <div className="ideaForm">
           <h4 className="AuthorBox">{"Anonymous"}</h4>
           <p className="IdeaBox">
-            <ReadMore idea={idea} />
+          <ReadMore idea={idea} />          
+
           </p>
           <h6 className="EmailBox">
             Uploaded on {formattedDate} at {formattedTime}
           </h6>
+          <span className="voting-row">
           <button
             className="upvote-btn"
             type="button"
@@ -46,6 +52,7 @@ export const Innovation = (props) => {
             🡻{" "}
           </button>
           <span className="score-text">{score}</span>
+          </span>
         </div>
       </div>
     );
@@ -58,11 +65,12 @@ export const Innovation = (props) => {
           <h6 className="EmailBox">{email}</h6>
 
           <p className="IdeaBox">
-          <ReadMore idea={idea} />
+            <ReadMore idea={idea} />
           </p>
           <h6 className="EmailBox">
             Uploaded on {formattedDate} at {formattedTime}
           </h6>
+          <span className="voting-row">
           <button
             className="upvote-btn"
             type="button"
@@ -80,6 +88,7 @@ export const Innovation = (props) => {
             🡻{" "}
           </button>
           <span className="score-text">{score}</span>
+          </span>
         </div>
       </div>
     );

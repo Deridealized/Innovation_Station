@@ -23,6 +23,7 @@ function InnovationList(props) {
     key,
     innovation: JSON.parse(value)
   }))
+  .sort((a,b) => b.innovation.score - a.innovation.score);
 
  
   if (filteredItems.length === 0) {
@@ -36,7 +37,7 @@ function InnovationList(props) {
   }
 
   return (
-    <div>
+    <div className="innovation-container">
       <form className="MainForm2">
         <header>          
           <h4 className="SmallTitle">Your ideas are being actioned</h4>
@@ -46,6 +47,7 @@ function InnovationList(props) {
         <div className="wrapper">
           {filteredItems.map((item) => {            
             const { key, innovation } = item;
+            
 
             if (innovation){              
             return (
