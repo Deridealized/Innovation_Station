@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/innovation_station/static/css/main.e04520d8.css",
-    "main.js": "/innovation_station/static/js/main.114082f0.js",
-    "static/media/ev1_ed.png": "/innovation_station/static/media/ev1_ed.5087b1768efb1210badb.png",
-    "static/media/tech4.jpg": "/innovation_station/static/media/tech4.58007ee82eb0d47e317e.jpg",
-    "static/media/tech3.jpg": "/innovation_station/static/media/tech3.583ff1c3839e5c0289ac.jpg",
-    "static/media/tech1.jpg": "/innovation_station/static/media/tech1.e50ebb2d337ff1ad5cb7.jpg",
-    "static/media/flclogo.png": "/innovation_station/static/media/flclogo.a32405acfb2a3a443bf4.png",
-    "static/media/tech2.jpg": "/innovation_station/static/media/tech2.42e469d1495e7b38b9ff.jpg",
-    "static/media/search.png": "/innovation_station/static/media/search.f8625530f28f5f5d0bfa.png",
-    "index.html": "/innovation_station/index.html",
-    "main.e04520d8.css.map": "/innovation_station/static/css/main.e04520d8.css.map",
-    "main.114082f0.js.map": "/innovation_station/static/js/main.114082f0.js.map"
+    "main.css": "/Innovation_Station/static/css/main.7db58e5c.css",
+    "main.js": "/Innovation_Station/static/js/main.9196829d.js",
+    "static/media/ev1_ed.png": "/Innovation_Station/static/media/ev1_ed.5087b1768efb1210badb.png",
+    "static/media/tech4.jpg": "/Innovation_Station/static/media/tech4.58007ee82eb0d47e317e.jpg",
+    "static/media/tech3.jpg": "/Innovation_Station/static/media/tech3.583ff1c3839e5c0289ac.jpg",
+    "static/media/tech1.jpg": "/Innovation_Station/static/media/tech1.e50ebb2d337ff1ad5cb7.jpg",
+    "static/media/flclogo.png": "/Innovation_Station/static/media/flclogo.a32405acfb2a3a443bf4.png",
+    "static/media/tech2.jpg": "/Innovation_Station/static/media/tech2.42e469d1495e7b38b9ff.jpg",
+    "static/media/search.png": "/Innovation_Station/static/media/search.f8625530f28f5f5d0bfa.png",
+    "index.html": "/Innovation_Station/index.html",
+    "main.7db58e5c.css.map": "/Innovation_Station/static/css/main.7db58e5c.css.map",
+    "main.9196829d.js.map": "/Innovation_Station/static/js/main.9196829d.js.map"
   },
   "entrypoints": [
-    "static/css/main.e04520d8.css",
-    "static/js/main.114082f0.js"
+    "static/css/main.7db58e5c.css",
+    "static/js/main.9196829d.js"
   ]
 }
