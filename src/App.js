@@ -9,7 +9,6 @@
 //Input error handling - tells you each incorrect input field
 //There is a remove all button (for testing purposes)
 
-
 import React, { useState } from "react";
 import "./App.css";
 import { InputField } from "./components/inputField";
@@ -60,18 +59,26 @@ function App() {
 
   const onVote = () => {
     setRefresh((prevRefresh) => !prevRefresh);
-    console.log(`Refreshed! State: ${refresh}`)
+    console.log(`Refreshed! State: ${refresh}`);
   };
 
   return (
     <div className="container">
       <TopBar />
       <div className="App">
-        <form className={`MainForm ${submitSuccess ? "success" : ""}`}>
+        <div className="MainHeader">
           <header>
-            <h3 className="SmallTitle">Innovation Station</h3>
-            <h1 className="MainTitle">Get Your Ideas Noticed</h1>
+            <h3 className="SmallTitle3">Innovation Station</h3>
+            <h1 className="MainTitle2">Get Your Ideas Noticed</h1>
           </header>
+        </div>
+        <div className="MainContainer">
+        
+        <div class="ImageContainer">        
+        <div className="yourideas"><h1 className="ideaheaders">Your Ideas</h1>          
+          <h3 className="ideaheaders2">made real</h3>  </div> 
+        <form className={`MainForm ${submitSuccess ? "success" : ""}`}>
+          <h1 className="MainTitle">Submit your idea</h1>
 
           <div className="InputRow">
             <InputField
@@ -135,8 +142,10 @@ function App() {
               submitSuccessCallback={setSubmitSuccess}
             />
             <CheckIcon showMe={submitSuccess} message="Submit Successful" />
-          </span>
+          </span>          
         </form>
+        </div>
+        </div>
 
         <span className="iiiImages">
           <ImageTitle title="Innovate" image={innovImage} />

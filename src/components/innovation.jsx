@@ -20,6 +20,10 @@ export const Innovation = (props) => {
     }
   };
 
+  const handleRemove = () => {
+    localStorage.removeItem(id);
+  }
+
   useEffect(() => {
     setScore(props.score);
   }, [props.score]);
@@ -28,6 +32,7 @@ export const Innovation = (props) => {
     return (
       <div className="">
         <div className="ideaForm">
+        <button className="del-btn2" onClick={handleRemove}>X</button>  
           <h4 className="AuthorBox">{"Anonymous"}</h4>
           <div className="IdeaBox">
           <ReadMore idea={idea} />          
@@ -62,7 +67,8 @@ export const Innovation = (props) => {
     return (
       <div className="">
         <div className="ideaForm">
-          <h4 className="AuthorBox">{author}</h4>
+        <button className="del-btn2" onClick={handleRemove}>X</button>          
+          <h4 className="AuthorBox">{author} </h4>
           <h5 className="TitleBox">{title}</h5>
           <h6 className="EmailBox">{email}</h6>
 

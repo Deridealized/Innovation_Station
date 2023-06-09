@@ -8,6 +8,12 @@
   flex-grow: 1;
 }
 
+.MainContainer {
+  display: flex;
+  align-items: flex-start;
+  gap: 25px;
+}
+
 .MainForm {
   transition: 0.3s;
   display: flex;
@@ -19,11 +25,13 @@
   border-radius: 15px;
   border: 2px solid white;
   padding: 2rem;
-  margin-top:100px;
+  margin-top:50px;
+  margin-right: 50px;
+  margin-bottom: 50px;
   text-align: left;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  position: relative; /* Add this line */
-  z-index: 1; /* Add this line */
+  position: relative; 
+  z-index: 1; 
 }
 
 .MainForm2 {
@@ -37,15 +45,62 @@
   text-align: left;
 }
 
+.ImageContainer {
+  display: flex;
+  position: relative;
+  justify-content: right;
+  align-items: center;
+  background-image: url("./images/ev1_ed.png");
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position: center;
+  width: 900px;
+  height: 600px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+@media (max-width: 768px) {
+  .MainContainer {
+    flex-direction: column;
+  }
+
+  .MainForm,
+  .ImageContainer {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+.yourideas {
+  flex-direction: column;  
+  position: absolute;
+  left: 50px;
+  top: 42%;
+  color: rgba(209, 253, 251, 0.9);
+  opacity: 75%;
+  margin-left: 15%;
+  padding: 0px;
+  justify-content: space-between;  
+}
+.ideaheaders, .ideaheaders2 {      
+  margin: 0; 
+  margin-bottom: -0.5rem; 
+}
+
+.ideaheaders2 {
+  display: flex;
+}
+
 .browse-page {
-   position: absolute; /* Add this line */
-  top: 100%; /* Add this line */
-  left: 0; /* Add this line */
-  width: 100%; /* Add this line */
-  background-color: white; /* Add this line */
-  padding: 1rem; /* Add this line */
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Add this line */
-  z-index: 2; /* Add this line */
+   position: absolute;
+  top: 100%; 
+  left: 0;
+  width: 100%;
+  background-color: white; 
+  padding: 1rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); 
 }
 
 .wrapper {     
@@ -105,6 +160,7 @@
 }
 
 .ideaForm {
+  position: relative;
   transition: 0.3s;
   display: flexbox;
   flex-direction: column;
@@ -296,18 +352,31 @@
   display: none;
 }
 
-.MainTitle {
+.MainHeader {
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px rgb(255, 255, 255);
+}
+
+.MainTitle, .MainTitle2 {
   margin-top: 0rem;
 }
 
-.SmallTitle {
+.SmallTitle, .SmallTitle2, .SmallTitle3 {
   margin-bottom: 0rem;
   font-size: small;
 }
 
 .SmallTitle2 {
-  font-size: small;
   margin-top: 25px;
+}
+
+.SmallTitle3 {
+  display: flex;
+  justify-content: left;
+  margin-left: 10px;
 }
 
 .link-btn, .del-btn {
@@ -322,10 +391,26 @@
   cursor: pointer;
 }
 
-.del-btn {
+.del-btn, .del-btn2 {
   color: white;
   border: 2px solid rgb(150, 0, 0);
   background-color: rgb(255, 55, 55);
+}
+
+.del-btn2 {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  opacity: 75%; 
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  color: black;
+  cursor: pointer;
 }
 
 .upvote-btn, .downvote-btn, .score-text { 
@@ -356,6 +441,7 @@
   background-color: transparent;
   border: 1px solid black;
   border-radius: 5px;
+  cursor: default;
 }
 
 .voting-row {
