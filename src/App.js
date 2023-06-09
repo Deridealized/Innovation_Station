@@ -9,7 +9,6 @@
 //Input error handling - tells you each incorrect input field
 //There is a remove all button (for testing purposes)
 
-
 import React, { useState } from "react";
 import "./App.css";
 import { InputField } from "./components/inputField";
@@ -24,6 +23,7 @@ import { ImageTitle } from "./components/imageTitle";
 import innovImage from "./images/iconCompass.png";
 import inventImage from "./images/iconPeopleCogs.png";
 import inspireImage from "./images/iconCogs.png";
+import { LatestTechNews } from "./components/latestTechNews";
 
 function App() {
   //Input value states
@@ -60,83 +60,98 @@ function App() {
 
   const onVote = () => {
     setRefresh((prevRefresh) => !prevRefresh);
-    console.log(`Refreshed! State: ${refresh}`)
+    console.log(`Refreshed! State: ${refresh}`);
   };
 
   return (
     <div className="container">
       <TopBar />
       <div className="App">
-        <form className={`MainForm ${submitSuccess ? "success" : ""}`}>
+        <div className="MainHeader">
           <header>
-            <h3 className="SmallTitle">Innovation Station</h3>
-            <h1 className="MainTitle">Get Your Ideas Noticed</h1>
-          </header>
+            <h3 className="SmallTitle3">Innovation Station</h3>
+            <h1 className="MainTitle2">Get Your Ideas Noticed</h1>
+          </header>          
+        </div>
+        <div>
+        <p>The Fleetcor innovation portal has been designed by our apprentices to allow your voice to be heard.</p>
+        <p>Submit your ideas and innovations using the form below</p>
+        </div>
+        <div className="MainContainer">
+          <div class="ImageContainer">
+            <div className="yourideas">
+              <h1 className="ideaheaders">Your Ideas</h1>
+              <h3 className="ideaheaders2">made real</h3>{" "}
+            </div>
+            <form className={`MainForm ${submitSuccess ? "success" : ""}`}>
+              <h1 className="MainTitle">Submit your idea</h1>
 
-          <div className="InputRow">
-            <InputField
-              name="Name"
-              isAnonymous={isAnonymous}
-              setInputCallback={setUsername}
-              setMaxCallback={setIsNameMax}
-              setMaxInput={maxInput}
-              isValid={validName}
-            />
-            <WarningIcon showMe={isNameMax || validName} />
+              <div className="InputRow">
+                <InputField
+                  name="Name"
+                  isAnonymous={isAnonymous}
+                  setInputCallback={setUsername}
+                  setMaxCallback={setIsNameMax}
+                  setMaxInput={maxInput}
+                  isValid={validName}
+                />
+                <WarningIcon showMe={isNameMax || validName} />
 
-            <InputField
-              name="Email"
-              isAnonymous={isAnonymous}
-              setInputCallback={setEmail}
-              setMaxCallback={setIsEmailMax}
-              setMaxInput={maxInput}
-              isValid={validEmail}
-            />
-            <WarningIcon showMe={isEmailMax || validEmail} />
+                <InputField
+                  name="Email"
+                  isAnonymous={isAnonymous}
+                  setInputCallback={setEmail}
+                  setMaxCallback={setIsEmailMax}
+                  setMaxInput={maxInput}
+                  isValid={validEmail}
+                />
+                <WarningIcon showMe={isEmailMax || validEmail} />
+              </div>
+
+              <input
+                className="InputFieldBox"
+                type="checkbox"
+                onClick={() => setIsAnonymous(!isAnonymous)}
+              ></input>
+              <p className="InlineText"> Anonymous</p>
+
+              <InputField
+                name="Job Title (Required)"
+                setInputCallback={setJobTitle}
+                setMaxCallback={setIsJobTitleMax}
+                setMaxInput={maxInput}
+                isValid={validJob}
+                isAnonymous={isAnonymous}
+              />
+              <WarningIcon showMe={isJobTitleMax || validJob} />
+
+              <IdeaInputField
+                setInputCallback={setIdea}
+                setMaxInput={maxIdeaInput}
+                setMaxCallback={setIsIdeaMax}
+                isValid={validIdea}
+              />
+              <WarningIcon showMe={isIdeaMax || validIdea} />
+
+              <span className="buttons">
+                <SubmitButton
+                  submitName={userName}
+                  submitEmail={email}
+                  submitJobTitle={jobTitle}
+                  submitIdea={idea}
+                  //Validity
+                  isAnonymous={isAnonymous}
+                  validNameCallback={setValidName}
+                  validEmailCallback={setValidEmail}
+                  validJobCallback={setValidJob}
+                  validIdeaCallback={setValidIdea}
+                  submitSuccessCallback={setSubmitSuccess}
+                />
+                <CheckIcon showMe={submitSuccess} message="Submit Successful" />
+              </span>
+            </form>
           </div>
-
-          <input
-            className="InputFieldBox"
-            type="checkbox"
-            onClick={() => setIsAnonymous(!isAnonymous)}
-          ></input>
-          <p className="InlineText"> Anonymous</p>
-
-          <InputField
-            name="Job Title (Required)"
-            setInputCallback={setJobTitle}
-            setMaxCallback={setIsJobTitleMax}
-            setMaxInput={maxInput}
-            isValid={validJob}
-            isAnonymous={isAnonymous}
-          />
-          <WarningIcon showMe={isJobTitleMax || validJob} />
-
-          <IdeaInputField
-            setInputCallback={setIdea}
-            setMaxInput={maxIdeaInput}
-            setMaxCallback={setIsIdeaMax}
-            isValid={validIdea}
-          />
-          <WarningIcon showMe={isIdeaMax || validIdea} />
-
-          <span className="buttons">
-            <SubmitButton
-              submitName={userName}
-              submitEmail={email}
-              submitJobTitle={jobTitle}
-              submitIdea={idea}
-              //Validity
-              isAnonymous={isAnonymous}
-              validNameCallback={setValidName}
-              validEmailCallback={setValidEmail}
-              validJobCallback={setValidJob}
-              validIdeaCallback={setValidIdea}
-              submitSuccessCallback={setSubmitSuccess}
-            />
-            <CheckIcon showMe={submitSuccess} message="Submit Successful" />
-          </span>
-        </form>
+        </div>
 
         <span className="iiiImages">
           <ImageTitle title="Innovate" image={innovImage} />
@@ -152,7 +167,7 @@ function App() {
           />
         ) : (
           <button className="link-btn" onClick={() => setShowSubmissions(true)}>
-            Browse Innovations
+            Top Rated Innovations
           </button>
         )}
       </div>
@@ -161,7 +176,8 @@ function App() {
           showSubmissions={showSubmissions}
           onValueChange={handleValueChange}
           onVote={onVote}
-        />
+        />  
+        <LatestTechNews />      
       </div>
     </div>
   );

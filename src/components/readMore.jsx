@@ -47,7 +47,7 @@ export const ReadMore = (props) => {
   } else {
     return (
       <div>
-        <div className="content">a
+        <div className="content">
           {idea}          
         </div>
       </div>

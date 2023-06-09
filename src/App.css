@@ -4,8 +4,14 @@
   min-height: 100vh;
   align-items: center;
   flex-direction: column;
-  justify-content: center;
-  flex-grow: 1;
+  margin-top: 100px;
+  
+}
+
+.MainContainer {
+  display: flex;
+  align-items: flex-start;
+  gap: 25px;
 }
 
 .MainForm {
@@ -19,11 +25,13 @@
   border-radius: 15px;
   border: 2px solid white;
   padding: 2rem;
-  margin-top:100px;
+  margin-top:50px;
+  margin-right: 50px;
+  margin-bottom: 50px;
   text-align: left;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  position: relative; /* Add this line */
-  z-index: 1; /* Add this line */
+  position: relative; 
+  z-index: 1; 
 }
 
 .MainForm2 {
@@ -37,15 +45,63 @@
   text-align: left;
 }
 
+.ImageContainer {
+  display: flex;
+  position: relative;
+  justify-content: right;
+  align-items: center;
+  background-image: url("./images/ev1_ed.png");
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position: center;
+  width: 900px;
+  height: 600px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+@media (max-width: 768px) {
+  .MainContainer {
+    flex-direction: column;
+  }
+
+  .MainForm,
+  .ImageContainer {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+.yourideas {
+  flex-direction: column;  
+  position: absolute;
+  left: 40px;
+  top: 42%;
+  color: rgba(209, 253, 251, 0.9);
+  opacity: 75%;
+  margin-left: 15%;
+  padding: 0px;
+  justify-content: space-between;  
+}
+.ideaheaders, .ideaheaders2 {      
+  margin: 0; 
+  margin-bottom: -0.5rem; 
+  text-shadow: 0.5px .5px 3px rgb(255, 255, 255);
+}
+
+.ideaheaders2 {
+  display: flex;
+}
+
 .browse-page {
-   position: absolute; /* Add this line */
-  top: 100%; /* Add this line */
-  left: 0; /* Add this line */
-  width: 100%; /* Add this line */
-  background-color: white; /* Add this line */
-  padding: 1rem; /* Add this line */
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Add this line */
-  z-index: 2; /* Add this line */
+   position: absolute;
+  top: 100%; 
+  left: 0;
+  width: 100%;
+  background-color: white; 
+  padding: 1rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); 
 }
 
 .wrapper {     
@@ -63,6 +119,7 @@
 }
 
 .sidebar {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -73,9 +130,13 @@
     rgba(242, 242, 242, 0) 100%
   );
   justify-self: end;
-  margin-top: 50px;
-  position: sticky;
+  margin-top: 30px;
   top: 0;
+}
+
+.tech-img {
+  cursor: pointer;
+  width: 100%;
 }
 
 .sidebar:before,
@@ -105,6 +166,23 @@
 }
 
 .ideaForm {
+display: flexbox;
+flex-direction: column;
+padding-top: 1rem;
+padding-bottom: 1rem;
+padding-left: 1rem;
+width: 100%;
+word-wrap: break-word;
+background: rgba(255, 255, 255, 1);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(5.6px);
+-webkit-backdrop-filter: blur(5.6px);
+border: 1px solid rgb(255, 255, 255);
+
+
+
+ /* position: relative;
   transition: 0.3s;
   display: flexbox;
   flex-direction: column;
@@ -117,16 +195,18 @@
   border: 2px solid white;
   padding: 2rem;
   text-align: left;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);
-  
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.1);  
+  */
 }
 
 .MainForm.success {
   transition: 0.3s;
-  background-color: rgba(115, 255, 0, 0.218);
+  background-color: rgb(227, 255, 203);
 }
 
 .AuthorBox {
+  
+  border-bottom: 2px solid rgba(0, 0, 0, 0.15);
   font-weight: bold;
   text-shadow: 2px 2px 2px rgba(128, 128, 128, 0.555);
   margin-top: 0.1rem;
@@ -139,15 +219,21 @@
 }
 
 .IdeaBox {
+  
   margin-top: 10px;
   margin-bottom: 10px;
 }
 
-.EmailBox {
+.EmailBox, .TimeBox {
+  
   margin-top: 0.1rem;
   margin-bottom: 0.1rem;
   font-style: italic;
   color: rgb(92, 92, 92, 0.7);
+}
+
+.TimeBox {
+  border-bottom: 2px solid rgba(0, 0, 0, 0.15);
 }
 
 .InputField {
@@ -296,18 +382,32 @@
   display: none;
 }
 
-.MainTitle {
+.MainHeader {
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+  font-weight: bold;
+  text-shadow: 1px 1px 1px rgb(255, 255, 255);
+  
+}
+
+.MainTitle, .MainTitle2 {
   margin-top: 0rem;
 }
 
-.SmallTitle {
+.SmallTitle, .SmallTitle2, .SmallTitle3 {
   margin-bottom: 0rem;
   font-size: small;
 }
 
 .SmallTitle2 {
-  font-size: small;
   margin-top: 25px;
+}
+
+.SmallTitle3 {
+  display: flex;
+  justify-content: left;
+  margin-left: 10px;
 }
 
 .link-btn, .del-btn {
@@ -322,10 +422,26 @@
   cursor: pointer;
 }
 
-.del-btn {
+.del-btn, .del-btn2 {
   color: white;
   border: 2px solid rgb(150, 0, 0);
   background-color: rgb(255, 55, 55);
+}
+
+.del-btn2 {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  opacity: 75%; 
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  color: black;
+  cursor: pointer;
 }
 
 .upvote-btn, .downvote-btn, .score-text { 
@@ -341,21 +457,24 @@
   margin-left: 10px;
   margin-right: 10px;
   color: rgb(255, 255, 255);
-  background-color: rgb(36, 199, 90);
+  background-color: rgba(36, 199, 90, 0.75);
   cursor: pointer;
   text-shadow: 2px 2px 2px rgba(128, 128, 128, 0.555);
   
 }
 
 .downvote-btn {
-  background-color: rgb(216, 66, 86);
+  background-color: rgba(216, 66, 86, 0.75);
 }
 
 .score-text {  
   color: black;
   background-color: transparent;
-  border: 1px solid black;
-  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.24);
+  border-radius: 20px;
+  cursor: default;
+  text-shadow: none;
+
 }
 
 .voting-row {
@@ -373,6 +492,7 @@
   display: flex;
   flex-direction: row;
   margin-top: 25px;
+  gap: 100px;
 }
 
 .image-title {

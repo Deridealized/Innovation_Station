@@ -27,9 +27,10 @@ function InnovationSidebar(props) {
 
   return (
     <div className="sidebar">
+      
       <form className="MainForm2">
         <header>
-          <h1 className="SmallTitle2">Latest Innovations</h1>
+        <h4 style={{opacity: 0.5, left: 0}}>Latest Innovations</h4>
         </header>
 
         <div className="sidebar-items">
@@ -42,7 +43,7 @@ function InnovationSidebar(props) {
                   key={key}
                   id={innovation.id}
                   idea={innovation.idea}
-                  author={innovation.author}
+                  author={innovation.author}                  
                   anonymous={innovation.anonymous}
                   score={innovation.score}
                   timestamp={innovation.timestamp}

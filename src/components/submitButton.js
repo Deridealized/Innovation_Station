@@ -58,12 +58,11 @@ export const SubmitButton = (props) => {
     const generateId = () => Math.random().toString(36).substring(2, 18);
     const innovationObj = {};
 
-    verifyName();
-    verifyEmail();
-    verifyJobTitle();
-    verifyIdea();
-
     if (!isAnonymous) {
+      verifyName();
+      verifyEmail();
+      verifyJobTitle();
+      verifyIdea();
       if (
         !isUsernameInvalid &&
         !isEmailInvalid &&
@@ -99,6 +98,8 @@ export const SubmitButton = (props) => {
         alert(`Please fix field(s): ${badName} ${badEmail} ${badTitle} ${badIdea}`);
       }
     } else {
+      
+      verifyIdea();
       if (!isIdeaInvalid) {
         const innovationId = generateId();
         innovationObj.id = innovationId;
