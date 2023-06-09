@@ -341,14 +341,14 @@
   margin-left: 10px;
   margin-right: 10px;
   color: rgb(255, 255, 255);
-  background-color: rgb(36, 199, 90);
+  background-color: rgba(36, 199, 90, 0.75);
   cursor: pointer;
   text-shadow: 2px 2px 2px rgba(128, 128, 128, 0.555);
   
 }
 
 .downvote-btn {
-  background-color: rgb(216, 66, 86);
+  background-color: rgba(216, 66, 86, 0.75);
 }
 
 .score-text {  
@@ -373,6 +373,7 @@
   display: flex;
   flex-direction: row;
   margin-top: 25px;
+  gap: 100px;
 }
 
 .image-title {
