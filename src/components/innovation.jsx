@@ -28,6 +28,8 @@ export const Innovation = (props) => {
     setScore(props.score);
   }, [props.score]);
 
+  
+
   if (anonymous) {
     return (
       <div className="">

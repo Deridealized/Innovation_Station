@@ -17,6 +17,7 @@ function InnovationList(props) {
   
   //Local Storage to array
   const localStorageItems = Object.entries(localStorage);
+  console.log(localStorageItems)
 
   const filteredItems = localStorageItems
   .map(([key, value]) => ({
