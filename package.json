@@ -1,5 +1,6 @@
 {
-  "name": "testapp",
+  "name": "innovationstation",
+  "homepage": "https://deridealized.github.io/innovation_station",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
