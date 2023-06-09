@@ -24,6 +24,7 @@ export const SubmitButton = (props) => {
 
   const verifyEmail = () => {
     const regexEmail =
+    //eslint-disable-next-line
       /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
     isEmailInvalid = !regexEmail.test(email);
     return props.validEmailCallback(isEmailInvalid);

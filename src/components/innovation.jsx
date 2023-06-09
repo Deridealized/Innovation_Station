@@ -43,7 +43,7 @@ export const Innovation = (props) => {
             onClick={() => handleScoreChange(1)}
           >
             {" "}
-            🡹{" "}
+            △{" "}
           </button>
           <button
             className="downvote-btn"
@@ -51,7 +51,7 @@ export const Innovation = (props) => {
             onClick={() => handleScoreChange(-1)}
           >
             {" "}
-            🡻{" "}
+            ▽{" "}
           </button>
           <span className="score-text">{score}</span>
           </span>
@@ -79,7 +79,7 @@ export const Innovation = (props) => {
             onClick={() => handleScoreChange(1)}
           >
             {" "}
-            🡹{" "}
+            △{" "}
           </button>
           <button
             className="downvote-btn"
@@ -87,7 +87,7 @@ export const Innovation = (props) => {
             onClick={() => handleScoreChange(-1)}
           >
             {" "}
-            🡻{" "}
+            ▽{" "}
           </button>
           <span className="score-text">{score}</span>
           </span>

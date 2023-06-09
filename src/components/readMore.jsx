@@ -14,7 +14,7 @@ export const ReadMore = (props) => {
     } else if (idea.length <= 50) {
       setShowFullContent(true);
     }
-  }, []);
+  }, [idea.length, readMoreRequired]);
 
   const toggleContent = () => {
     setShowFullContent(!showFullContent);
@@ -47,7 +47,7 @@ export const ReadMore = (props) => {
   } else {
     return (
       <div>
-        <div className="content">
+        <div className="content">a
           {idea}          
         </div>
       </div>

@@ -22,7 +22,7 @@ export const CheckIcon = (props) => {
     return (      
         <span className="modal">
         <img src={Check} alt="Checkmark" className={showCheck()}></img>
-        <a  className={showText()}>{props.message}</a>        
+        <p  className={showText()}>{props.message}</p>        
         </span>
     );
 }

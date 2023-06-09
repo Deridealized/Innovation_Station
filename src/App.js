@@ -100,7 +100,7 @@ function App() {
             type="checkbox"
             onClick={() => setIsAnonymous(!isAnonymous)}
           ></input>
-          <a className="InlineText"> Anonymous</a>
+          <p className="InlineText"> Anonymous</p>
 
           <InputField
             name="Job Title (Required)"

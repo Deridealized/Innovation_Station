@@ -6,7 +6,7 @@ export const ImageTitle = (props) => {
 
   return (
     <div className="image-title">
-        <img src={image} />
+        <img src={image} alt="generic"/>
         <span style={{marginTop: 15}}>{title}</span>
     </div>
   )
