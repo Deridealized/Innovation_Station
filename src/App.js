@@ -152,7 +152,7 @@ function App() {
           />
         ) : (
           <button className="link-btn" onClick={() => setShowSubmissions(true)}>
-            Browse Innovations
+            Top Rated Innovations
           </button>
         )}
       </div>
