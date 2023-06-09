@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Innovation_Station/static/css/main.7db58e5c.css",
-    "main.js": "/Innovation_Station/static/js/main.9196829d.js",
+    "main.css": "/Innovation_Station/static/css/main.f71619d2.css",
+    "main.js": "/Innovation_Station/static/js/main.173fe30e.js",
     "static/media/ev1_ed.png": "/Innovation_Station/static/media/ev1_ed.5087b1768efb1210badb.png",
     "static/media/tech4.jpg": "/Innovation_Station/static/media/tech4.58007ee82eb0d47e317e.jpg",
     "static/media/tech3.jpg": "/Innovation_Station/static/media/tech3.583ff1c3839e5c0289ac.jpg",
@@ -10,11 +10,11 @@
     "static/media/tech2.jpg": "/Innovation_Station/static/media/tech2.42e469d1495e7b38b9ff.jpg",
     "static/media/search.png": "/Innovation_Station/static/media/search.f8625530f28f5f5d0bfa.png",
     "index.html": "/Innovation_Station/index.html",
-    "main.7db58e5c.css.map": "/Innovation_Station/static/css/main.7db58e5c.css.map",
-    "main.9196829d.js.map": "/Innovation_Station/static/js/main.9196829d.js.map"
+    "main.f71619d2.css.map": "/Innovation_Station/static/css/main.f71619d2.css.map",
+    "main.173fe30e.js.map": "/Innovation_Station/static/js/main.173fe30e.js.map"
   },
   "entrypoints": [
-    "static/css/main.7db58e5c.css",
-    "static/js/main.9196829d.js"
+    "static/css/main.f71619d2.css",
+    "static/js/main.173fe30e.js"
   ]
 }
