@@ -38,7 +38,7 @@ export const Innovation = (props) => {
           <ReadMore idea={idea} />          
 
           </div>
-          <h6 className="EmailBox">
+          <h6 className="TimeBox">
             Uploaded on {formattedDate} at {formattedTime}
           </h6>
           <span className="voting-row">
@@ -75,7 +75,7 @@ export const Innovation = (props) => {
           <div className="IdeaBox">
             <ReadMore idea={idea} />
           </div>
-          <h6 className="EmailBox">
+          <h6 className="TimeBox">
             Uploaded on {formattedDate} at {formattedTime}
           </h6>
           <span className="voting-row">
