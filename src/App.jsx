@@ -11,11 +11,6 @@
 
 import React, { useState } from "react";
 import "./App.css";
-import { InputField } from "./components/InputField/InputField";
-import { WarningIcon } from "./components/WarningIcon/WarningIcon";
-import { IdeaInputField } from "./components/InputField/IdeaInputField";
-import { SubmitButton } from "./components/SubmitButton/SubmitButton";
-import { CheckIcon } from "./components/CheckIcon/CheckIcon";
 import { TopBar } from "./components/TopBar/TopBar";
 import InnovationList from "./components/InnovationList/InnovationList";
 import InnovationSidebar from "./components/InnovationList/innovationSidebar";
