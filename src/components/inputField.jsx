@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 
 export const InputField = (props) => {
+
+  // const [text, setText] = useState('')
+
   const maxChars = props.setMaxInput;
 
   const setClasses = () => {
@@ -23,14 +26,20 @@ export const InputField = (props) => {
     }
   };
 
+
+
+
   return (
     <input
       className={setClasses()}
       placeholder={props.name}
+      name={props.name}
       maxLength="50"
+      value={props.text}
       onChange={e => {
-        props.setInputCallback(e.target.value);
-        maxError(e.target.value);
+        // props.setInputCallback(e.target.value);
+        // maxError(e.target.value);
+        props.updateText(e)
       }}
       style={invalidInput()}
     ></input>
