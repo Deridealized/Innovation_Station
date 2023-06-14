@@ -22,8 +22,8 @@ export const InputField = (props) => {
   const invalidInput = () => {
     if (props.isValid || props.isValid === null) {
       return { borderColor: "#2699FB" };
-      
-    } else if (!props.isValid) {
+      //red
+    } else if (!props.isValid && !props.isAnonymous) {
       return { borderColor: "#c02323" };
     }
   };

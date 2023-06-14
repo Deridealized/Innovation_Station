@@ -20,6 +20,7 @@ import inventImage from "./images/iconPeopleCogs.png";
 import inspireImage from "./images/iconCogs.png";
 import { LatestTechNews } from "./components/LatestTechNews/LatestTechNews";
 import Form from "./components/Form/Form";
+import MainPageHeader from "./components/MainPageHeader/MainPageHeader";
 
 function App() {
   const [showSubmissions, setShowSubmissions] = useState(false);
@@ -39,26 +40,14 @@ function App() {
     <div className="container">
       <TopBar />
       <div className="App">
-        <div className="MainHeader">
-          <header>
-            <h3 className="SmallTitle3">Innovation Station</h3>
-            <h1 className="MainTitle2">Get Your Ideas Noticed</h1>
-          </header>
-        </div>
-        <div>
-          <p>
-            The Fleetcor innovation portal has been designed by our apprentices
-            to allow your voice to be heard.
-          </p>
-          <p>Submit your ideas and innovations using the form below</p>
-        </div>
+        <MainPageHeader />
         <div className="MainContainer">
           <div className="ImageContainer">
             <div className="yourideas">
               <h1 className="ideaheaders">Your Ideas</h1>
               <h3 className="ideaheaders2">made real</h3>{" "}
             </div>
-            <Form />
+            <Form onVote={onVote}/>
           </div>
         </div>
 

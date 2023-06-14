@@ -3,8 +3,9 @@ import { InputField } from "../InputField/InputField";
 import { WarningIcon } from "../WarningIcon/WarningIcon";
 import { SubmitButton } from "../SubmitButton/SubmitButton";
 import { CheckIcon } from "../CheckIcon/CheckIcon";
+import { Input } from "@mui/material";
 
-const Form = () => {
+const Form = (props) => {
   //Input value states
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -24,8 +25,6 @@ const Form = () => {
   const [isIdeaMax, setIsIdeaMax] = useState(false);
   const [isJobTitleMax, setIsJobTitleMax] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
-  const [formSubmitted, setFormSubmitted] = useState(false);
-
   const maxInput = 50;
   const maxIdeaInput = 2500;
 
@@ -59,7 +58,16 @@ const Form = () => {
     }
   };
 
+  const handleRefresh = () => {
+    props.onVote();
+  }
+
   const validateForm = () => {
+    
+    console.log("validateform" + validName, validEmail, validJob, validIdea);
+  };
+
+  const submitForm = () => {
     const regexName = /^[a-zA-Z]+ [a-zA-Z]+$/;
     const regexEmail =
       /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
@@ -68,11 +76,6 @@ const Form = () => {
     setValidEmail(regexEmail.test(email));
     setValidJob(jobTitle.length > 0);
     setValidIdea(idea.length > 0);
-    console.log("validateform" + validName, validEmail, validJob, validIdea);
-  };
-
-  const submitForm = () => {
-    validateForm();
 
     const generateId = () => Math.random().toString(36).substring(2, 18);
     const innovationObj = {};
@@ -90,9 +93,9 @@ const Form = () => {
         innovationObj.anonymous = isAnonymous;
         innovationObj.score = 0;
         innovationObj.timestamp = new Date().toISOString();
-
+        
         localStorage.setItem(innovationId, JSON.stringify(innovationObj));
-        setFormSubmitted(true);
+        
 
         //Green overlay
         setSubmitSuccess(true);
@@ -122,7 +125,6 @@ const Form = () => {
         innovationObj.timestamp = new Date().toISOString();
 
         localStorage.setItem(innovationId, JSON.stringify(innovationObj));
-        setFormSubmitted(true);
 
         //Green overlay
         setSubmitSuccess(true);
@@ -148,7 +150,7 @@ const Form = () => {
           isValid={validName}
           updateText={updateState}
         />
-        <WarningIcon showMe={isNameMax || (!validName && validName !== null)} />
+        <WarningIcon showMe={(isNameMax || (!validName && validName !== null)) && !isAnonymous } />
 
         <InputField
           name="Email"
@@ -159,15 +161,14 @@ const Form = () => {
           updateText={updateState}
         />
         <WarningIcon
-          showMe={isEmailMax || (!validEmail && validEmail !== null)}
+          showMe={(isEmailMax || (!validEmail && validEmail !== null))  && !isAnonymous }
         />
       </div>
 
       <input
-        className="InputFieldBox"
         type="checkbox"
         onClick={() => setIsAnonymous(!isAnonymous)}
-      ></input>
+      />
       <p className="InlineText"> Anonymous</p>
 
       <InputField
@@ -178,7 +179,7 @@ const Form = () => {
         isAnonymous={isAnonymous}
         updateText={updateState}
       />
-      <WarningIcon showMe={isJobTitleMax || (!validJob && validJob !== null)} />
+      <WarningIcon showMe={(isJobTitleMax || (!validJob && validJob !== null))  && !isAnonymous} />
 
       <InputField
         name="Idea"
