@@ -1,22 +1,21 @@
 import React, { useState } from "react";
 import { InputField } from "../InputField/InputField";
 import { WarningIcon } from "../WarningIcon/WarningIcon";
-import { IdeaInputField } from "../InputField/IdeaInputField";
 import { SubmitButton } from "../SubmitButton/SubmitButton";
 import { CheckIcon } from "../CheckIcon/CheckIcon";
 
 const Form = () => {
   //Input value states
-  const [userName, setUsername] = useState("");
+  const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [idea, setIdea] = useState("");
   const [jobTitle, setJobTitle] = useState("");
   //These are named incorrectly, they should be invalid**
   //Bool values are flipped, don't want to re-name all.
-  const [validName, setValidName] = useState(false);
-  const [validEmail, setValidEmail] = useState(false);
-  const [validJob, setValidJob] = useState(false);
-  const [validIdea, setValidIdea] = useState(false);
+  const [validName, setValidName] = useState(null);
+  const [validEmail, setValidEmail] = useState(null);
+  const [validJob, setValidJob] = useState(null);
+  const [validIdea, setValidIdea] = useState(null);
 
   //Bool states, isAnon, maximum input chars
   const [isAnonymous, setIsAnonymous] = useState(false);
@@ -25,28 +24,116 @@ const Form = () => {
   const [isIdeaMax, setIsIdeaMax] = useState(false);
   const [isJobTitleMax, setIsJobTitleMax] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [formSubmitted, setFormSubmitted] = useState(false);
 
+  const maxInput = 50;
+  const maxIdeaInput = 2500;
 
-  const [text, setText] = useState('')
   const updateState = (event) => {
-
     //validation
     switch (event.target.name) {
-      case 'Name':
-        console.log((event.target.value).length > 5 ? 'longer than 5' : 'less than 5')
+      case "Name":
+        //Assign username from input
+        setUsername(event.target.value);
+        console.log(`username: ${username}`);
         break;
-    
+
+      case "Email":
+        //Assign email from input
+        setEmail(event.target.value);
+        console.log(`Email: ${email}`);
+        break;
+
+      case "Job Title (Required)":
+        setJobTitle(event.target.value);
+        console.log(`Title: ${jobTitle}`);
+        break;
+
+      case "Idea":
+        setIdea(event.target.value);
+        console.log(`Idea : ${idea}`);
+        break;
+
       default:
         break;
     }
+  };
 
-    
-    setText(event.target.value)
-  }
+  const validateForm = () => {
+    const regexName = /^[a-zA-Z]+ [a-zA-Z]+$/;
+    const regexEmail =
+      /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
 
-  //max input values
-  const maxInput = 50;
-  const maxIdeaInput = 2500;
+    setValidName(regexName.test(username));
+    setValidEmail(regexEmail.test(email));
+    setValidJob(jobTitle.length > 0);
+    setValidIdea(idea.length > 0);
+    console.log("validateform" + validName, validEmail, validJob, validIdea);
+  };
+
+  const submitForm = () => {
+    validateForm();
+
+    const generateId = () => Math.random().toString(36).substring(2, 18);
+    const innovationObj = {};
+
+    console.log("submitform" + validName, validEmail, validJob, validIdea);
+
+    if (!isAnonymous) {
+      if (validName && validEmail && validIdea && validJob) {
+        const innovationId = generateId();
+        innovationObj.id = innovationId;
+        innovationObj.author = username;
+        innovationObj.email = email;
+        innovationObj.idea = idea;
+        innovationObj.jobTitle = jobTitle;
+        innovationObj.anonymous = isAnonymous;
+        innovationObj.score = 0;
+        innovationObj.timestamp = new Date().toISOString();
+
+        localStorage.setItem(innovationId, JSON.stringify(innovationObj));
+        setFormSubmitted(true);
+
+        //Green overlay
+        setSubmitSuccess(true);
+        setTimeout(() => {
+          setSubmitSuccess(false);
+        }, 3000);
+      } else {
+        let badName = !validName ? "/Name" : "";
+        let badEmail = !validEmail ? "/Email" : "";
+        let badTitle = !validJob ? "/Job Title" : "";
+        let badIdea = !validIdea ? "/Idea" : "";
+
+        alert(
+          `Please fix field(s): ${badName} ${badEmail} ${badTitle} ${badIdea}`
+        );
+      }
+    } else {
+      if (validIdea) {
+        const innovationId = generateId();
+        innovationObj.id = innovationId;
+        innovationObj.author = username;
+        innovationObj.email = email;
+        innovationObj.idea = idea;
+        innovationObj.jobTitle = jobTitle;
+        innovationObj.anonymous = isAnonymous;
+        innovationObj.score = 0;
+        innovationObj.timestamp = new Date().toISOString();
+
+        localStorage.setItem(innovationId, JSON.stringify(innovationObj));
+        setFormSubmitted(true);
+
+        //Green overlay
+        setSubmitSuccess(true);
+        setTimeout(() => {
+          setSubmitSuccess(false);
+        }, 3000);
+      } else {
+        alert(`Please fix field: Idea`);
+      }
+    }
+  };
 
   return (
     <form className={`MainForm ${submitSuccess ? "success" : ""}`}>
@@ -56,24 +143,24 @@ const Form = () => {
         <InputField
           name="Name"
           isAnonymous={isAnonymous}
-          setInputCallback={setUsername}
           setMaxCallback={setIsNameMax}
           setMaxInput={maxInput}
           isValid={validName}
           updateText={updateState}
-          text={text}
         />
-        <WarningIcon showMe={isNameMax || validName} />
+        <WarningIcon showMe={isNameMax || (!validName && validName !== null)} />
 
         <InputField
           name="Email"
           isAnonymous={isAnonymous}
-          setInputCallback={setEmail}
           setMaxCallback={setIsEmailMax}
           setMaxInput={maxInput}
           isValid={validEmail}
+          updateText={updateState}
         />
-        <WarningIcon showMe={isEmailMax || validEmail} />
+        <WarningIcon
+          showMe={isEmailMax || (!validEmail && validEmail !== null)}
+        />
       </div>
 
       <input
@@ -85,34 +172,27 @@ const Form = () => {
 
       <InputField
         name="Job Title (Required)"
-        setInputCallback={setJobTitle}
         setMaxCallback={setIsJobTitleMax}
         setMaxInput={maxInput}
         isValid={validJob}
         isAnonymous={isAnonymous}
+        updateText={updateState}
       />
-      <WarningIcon showMe={isJobTitleMax || validJob} />
+      <WarningIcon showMe={isJobTitleMax || (!validJob && validJob !== null)} />
 
-      <IdeaInputField
-        setInputCallback={setIdea}
+      <InputField
+        name="Idea"
         setMaxInput={maxIdeaInput}
         setMaxCallback={setIsIdeaMax}
         isValid={validIdea}
+        updateText={updateState}
+        isIdeaField={true}
       />
-      <WarningIcon showMe={isIdeaMax || validIdea} />
+      <WarningIcon showMe={isIdeaMax || (!validIdea && validIdea !== null)} />
 
       <span className="buttons">
         <SubmitButton
-          submitName={userName}
-          submitEmail={email}
-          submitJobTitle={jobTitle}
-          submitIdea={idea}
-          //Validity
-          isAnonymous={isAnonymous}
-          validNameCallback={setValidName}
-          validEmailCallback={setValidEmail}
-          validJobCallback={setValidJob}
-          validIdeaCallback={setValidIdea}
+          submitForm={submitForm}
           submitSuccessCallback={setSubmitSuccess}
         />
         <CheckIcon showMe={submitSuccess} message="Submit Successful" />

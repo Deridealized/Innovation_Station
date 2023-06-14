@@ -19,14 +19,12 @@ import innovImage from "./images/iconCompass.png";
 import inventImage from "./images/iconPeopleCogs.png";
 import inspireImage from "./images/iconCogs.png";
 import { LatestTechNews } from "./components/LatestTechNews/LatestTechNews";
-import Form from "./components/Form/Form"
+import Form from "./components/Form/Form";
 
 function App() {
   const [showSubmissions, setShowSubmissions] = useState(false);
   //Refresher
   const [refresh, setRefresh] = useState(false);
-
-
 
   const handleValueChange = (newValue) => {
     setShowSubmissions(newValue);
@@ -45,11 +43,14 @@ function App() {
           <header>
             <h3 className="SmallTitle3">Innovation Station</h3>
             <h1 className="MainTitle2">Get Your Ideas Noticed</h1>
-          </header>          
+          </header>
         </div>
         <div>
-        <p>The Fleetcor innovation portal has been designed by our apprentices to allow your voice to be heard.</p>
-        <p>Submit your ideas and innovations using the form below</p>
+          <p>
+            The Fleetcor innovation portal has been designed by our apprentices
+            to allow your voice to be heard.
+          </p>
+          <p>Submit your ideas and innovations using the form below</p>
         </div>
         <div className="MainContainer">
           <div className="ImageContainer">
@@ -84,8 +85,8 @@ function App() {
           showSubmissions={showSubmissions}
           onValueChange={handleValueChange}
           onVote={onVote}
-        />  
-        <LatestTechNews />      
+        />
+        <LatestTechNews />
       </div>
     </div>
   );

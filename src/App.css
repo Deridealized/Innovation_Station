@@ -474,6 +474,7 @@ border: 1px solid rgb(255, 255, 255);
   border-radius: 20px;
   cursor: default;
   text-shadow: none;
+  
 
 }
 
@@ -509,14 +510,4 @@ border: 1px solid rgb(255, 255, 255);
   font-weight: bold;
   font-size: small;
   cursor: pointer;
-}
-
-.children-test {
-  background-color: red;
-  width: 10rem;
-  height: 10rem;
-}
-
-.children-test > p {
-  background-color: white;
 }
