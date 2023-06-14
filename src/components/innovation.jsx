@@ -8,8 +8,6 @@ export const Innovation = (props) => {
   const formattedTime = timestamp.toLocaleTimeString();
   const formattedDate = timestamp.toLocaleDateString();
 
-  
-
   const handleScoreChange = (vote) => {
     const storedInnovation = JSON.parse(localStorage.getItem(id));
     if (storedInnovation) {
@@ -22,7 +20,7 @@ export const Innovation = (props) => {
 
   const handleRemove = () => {
     localStorage.removeItem(id);
-  }
+  };
 
   useEffect(() => {
     setScore(props.score);
@@ -32,33 +30,34 @@ export const Innovation = (props) => {
     return (
       <div className="">
         <div className="ideaForm">
-        <button className="del-btn2" onClick={handleRemove}>X</button>  
+          <button className="del-btn2" onClick={handleRemove}>
+            X
+          </button>
           <h4 className="AuthorBox">{"Anonymous"}</h4>
           <div className="IdeaBox">
-          <ReadMore idea={idea} />          
-
+            <ReadMore idea={idea} />
           </div>
           <h6 className="TimeBox">
             Uploaded on {formattedDate} at {formattedTime}
           </h6>
           <span className="voting-row">
-          <button
-            className="upvote-btn"
-            type="button"
-            onClick={() => handleScoreChange(1)}
-          >
-            {" "}
-            △{" "}
-          </button>
-          <button
-            className="downvote-btn"
-            type="button"
-            onClick={() => handleScoreChange(-1)}
-          >
-            {" "}
-            ▽{" "}
-          </button>
-          <span className="score-text">{score}</span>
+            <button
+              className="upvote-btn"
+              type="button"
+              onClick={() => handleScoreChange(1)}
+            >
+              {" "}
+              △{" "}
+            </button>
+            <button
+              className="downvote-btn"
+              type="button"
+              onClick={() => handleScoreChange(-1)}
+            >
+              {" "}
+              ▽{" "}
+            </button>
+            <span className="score-text">{score}</span>
           </span>
         </div>
       </div>
@@ -67,7 +66,9 @@ export const Innovation = (props) => {
     return (
       <div className="">
         <div className="ideaForm">
-        <button className="del-btn2" onClick={handleRemove}>X</button>          
+          <button className="del-btn2" onClick={handleRemove}>
+            X
+          </button>
           <h4 className="AuthorBox">{author} </h4>
           <h5 className="TitleBox">{title}</h5>
           <h6 className="EmailBox">{email}</h6>
@@ -79,23 +80,23 @@ export const Innovation = (props) => {
             Uploaded on {formattedDate} at {formattedTime}
           </h6>
           <span className="voting-row">
-          <button
-            className="upvote-btn"
-            type="button"
-            onClick={() => handleScoreChange(1)}
-          >
-            {" "}
-            △{" "}
-          </button>
-          <button
-            className="downvote-btn"
-            type="button"
-            onClick={() => handleScoreChange(-1)}
-          >
-            {" "}
-            ▽{" "}
-          </button>
-          <span className="score-text">{score}</span>
+            <button
+              className="upvote-btn"
+              type="button"
+              onClick={() => handleScoreChange(1)}
+            >
+              {" "}
+              △{" "}
+            </button>
+            <button
+              className="downvote-btn"
+              type="button"
+              onClick={() => handleScoreChange(-1)}
+            >
+              {" "}
+              ▽{" "}
+            </button>
+            <span className="score-text">{score}</span>
           </span>
         </div>
       </div>
