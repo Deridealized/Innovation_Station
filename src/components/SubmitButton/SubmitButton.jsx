@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { ConfirmationModal } from "./confirmationModal";
-import { AttachmentButton } from "./attachmentButton";
+import { ConfirmationModal } from "../ConfirmationModal/ConfirmationModal";
+import { AttachmentButton } from "../AttachmentButton/AttachmentButton";
 
 export const SubmitButton = (props) => {
   const [showModal, setShowModal] = useState(false);
@@ -56,7 +56,7 @@ export const SubmitButton = (props) => {
   const submitForm = () => {
     
     const generateId = () => Math.random().toString(36).substring(2, 18);
-    const innovationObj = {};
+    const innovationObj= {};
 
     if (!isAnonymous) {
       verifyName();

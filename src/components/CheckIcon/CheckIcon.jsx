@@ -1,5 +1,5 @@
 import React from "react";
-import Check from "../icons/check.png"
+import Check from "../../icons/check.png"
 
 export const CheckIcon = (props) => {
 

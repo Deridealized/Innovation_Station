@@ -11,19 +11,19 @@
 
 import React, { useState } from "react";
 import "./App.css";
-import { InputField } from "./components/inputField";
-import { WarningIcon } from "./components/warningIcon";
-import { IdeaInputField } from "./components/ideaInputField";
-import { SubmitButton } from "./components/submitButton";
-import { CheckIcon } from "./components/checkIcon";
-import { TopBar } from "./components/topBar";
-import InnovationList from "./components/innovationList";
-import InnovationSidebar from "./components/innovationSidebar";
-import { ImageTitle } from "./components/imageTitle";
+import { InputField } from "./components/InputField/InputField";
+import { WarningIcon } from "./components/WarningIcon/WarningIcon";
+import { IdeaInputField } from "./components/InputField/IdeaInputField";
+import { SubmitButton } from "./components/SubmitButton/SubmitButton";
+import { CheckIcon } from "./components/CheckIcon/CheckIcon";
+import { TopBar } from "./components/TopBar/TopBar";
+import InnovationList from "./components/InnovationList/InnovationList";
+import InnovationSidebar from "./components/InnovationList/innovationSidebar";
+import { ImageTitle } from "./components/ImageTitle/ImageTitle";
 import innovImage from "./images/iconCompass.png";
 import inventImage from "./images/iconPeopleCogs.png";
 import inspireImage from "./images/iconCogs.png";
-import { LatestTechNews } from "./components/latestTechNews";
+import { LatestTechNews } from "./components/LatestTechNews/LatestTechNews";
 import Form from "./components/Form/Form"
 
 function App() {

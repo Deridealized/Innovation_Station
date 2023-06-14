@@ -1,6 +1,6 @@
 import React from "react";
-import FCLogo from "../icons/flclogo.png";
-import SearchLogo from "../icons/search.png";
+import FCLogo from "../../icons/flclogo.png";
+import SearchLogo from "../../icons/search.png";
 
 export const TopBar = () => {
     return (

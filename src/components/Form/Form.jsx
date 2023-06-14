@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { InputField } from "../inputField";
-import { WarningIcon } from "../warningIcon";
-import { IdeaInputField } from "../ideaInputField";
-import { SubmitButton } from "../submitButton";
-import { CheckIcon } from "../checkIcon";
+import { InputField } from "../InputField/InputField";
+import { WarningIcon } from "../WarningIcon/WarningIcon";
+import { IdeaInputField } from "../InputField/IdeaInputField";
+import { SubmitButton } from "../SubmitButton/SubmitButton";
+import { CheckIcon } from "../CheckIcon/CheckIcon";
 
 const Form = () => {
   //Input value states
