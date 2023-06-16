@@ -5,7 +5,7 @@ const MainPageHeader = () => {
     <div>
       <div className="MainHeader">
         <header>
-          <h3 className="SmallTitle3">Innovation Station</h3>
+          <h3 className="SmallTitle2">Innovation Station</h3>
           <h1 className="MainTitle2">Get Your Ideas Noticed</h1>
         </header>
       </div>

@@ -21,11 +21,13 @@ import inspireImage from "./images/iconCogs.png";
 import { LatestTechNews } from "./components/LatestTechNews/LatestTechNews";
 import Form from "./components/Form/Form";
 import MainPageHeader from "./components/MainPageHeader/MainPageHeader";
+import { Hero } from "./components/Hero/Hero";
 
 function App() {
   const [showSubmissions, setShowSubmissions] = useState(false);
   //Refresher
   const [refresh, setRefresh] = useState(false);
+  const [showApp, setShowApp] = useState(false);
 
   const handleValueChange = (newValue) => {
     setShowSubmissions(newValue);
@@ -36,47 +38,60 @@ function App() {
     console.log(`Refreshed! State: ${refresh}`);
   };
 
+  const handleHero = () => {
+    setShowApp(true)
+  };
+
   return (
-    <div className="container">
-      <TopBar />
-      <div className="App">
-        <MainPageHeader />
-        <div className="MainContainer">
-          <div className="ImageContainer">
-            <div className="yourideas">
-              <h1 className="ideaheaders">Your Ideas</h1>
-              <h3 className="ideaheaders2">made real</h3>{" "}
+    <div>
+      {showApp ? (
+        <div className="container">
+          <TopBar />
+          <div className="App">
+            <MainPageHeader />
+            <div className="MainContainer">
+              <div className="ImageContainer">
+                <div className="yourideas">
+                  <h1 className="ideaheaders">Your Ideas</h1>
+                  <h3 className="ideaheaders2">made real</h3>{" "}
+                </div>
+                <Form onVote={onVote} />
+              </div>
             </div>
-            <Form onVote={onVote}/>
+
+            <div className="iiiImages">
+              <ImageTitle title="Innovate" image={innovImage} />
+              <ImageTitle title="Invent" image={inventImage} />
+              <ImageTitle title="Inspire" image={inspireImage} />{" "}
+            </div>
+
+            {showSubmissions ? (
+              <InnovationList
+                showSubmissions={showSubmissions}
+                onValueChange={handleValueChange}
+                onVote={onVote}
+              />
+            ) : (
+              <button
+                className="link-btn"
+                onClick={() => setShowSubmissions(true)}
+              >
+                Top Rated Innovations
+              </button>
+            )}
+          </div>
+          <div className="sidebar">
+            <InnovationSidebar
+              showSubmissions={showSubmissions}
+              onValueChange={handleValueChange}
+              onVote={onVote}
+            />
+            <LatestTechNews />
           </div>
         </div>
-
-        <div className="iiiImages">
-          <ImageTitle title="Innovate" image={innovImage} />
-          <ImageTitle title="Invent" image={inventImage} />
-          <ImageTitle title="Inspire" image={inspireImage} />{" "}
-        </div>
-
-        {showSubmissions ? (
-          <InnovationList
-            showSubmissions={showSubmissions}
-            onValueChange={handleValueChange}
-            onVote={onVote}
-          />
-        ) : (
-          <button className="link-btn" onClick={() => setShowSubmissions(true)}>
-            Top Rated Innovations
-          </button>
-        )}
-      </div>
-      <div className="sidebar">
-        <InnovationSidebar
-          showSubmissions={showSubmissions}
-          onValueChange={handleValueChange}
-          onVote={onVote}
-        />
-        <LatestTechNews />
-      </div>
+      ) : (
+        <Hero setShowApp={handleHero}/>
+      )}
     </div>
   );
 }
