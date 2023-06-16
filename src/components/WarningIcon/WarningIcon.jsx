@@ -1,5 +1,5 @@
 import React from "react";
-import Warning from "../icons/warning.png"
+import Warning from "../../icons/warning.png"
 
 export const WarningIcon = (props) => {
 

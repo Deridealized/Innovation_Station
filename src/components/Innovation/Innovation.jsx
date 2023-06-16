@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { ReadMore } from "./readMore";
+import {ReadMore} from "../ReadMore/ReadMore";
 
 export const Innovation = (props) => {
   const [score, setScore] = useState(props.score || 0);

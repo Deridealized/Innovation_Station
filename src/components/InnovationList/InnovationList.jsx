@@ -1,5 +1,5 @@
 import React from "react";
-import { Innovation } from "./innovation";
+import { Innovation } from "../Innovation/Innovation";
 
 function InnovationList(props) {
 
